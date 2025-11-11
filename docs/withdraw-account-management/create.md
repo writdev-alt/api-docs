@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/create
+id: withdraw-account-management-create
+slug: /withdraw-account-management/create
 title: Create Withdrawal Account
 sidebar_position: 6
 ---

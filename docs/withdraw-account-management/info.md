@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/info
+id: withdraw-account-management-info
+slug: /withdraw-account-management/info
 title: Get Account Information
 sidebar_position: 3
 ---

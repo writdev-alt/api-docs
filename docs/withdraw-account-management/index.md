@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/index
+id: withdraw-account-management-index
+slug: /withdraw-account-management
 title: Withdrawal Account Management
 sidebar_position: 1
 ---

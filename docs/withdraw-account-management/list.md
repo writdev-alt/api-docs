@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/list
+id: withdraw-account-management-list
+slug: /withdraw-account-management/list
 title: List Withdrawal Accounts
 sidebar_position: 2
 ---

@@ -1,5 +1,6 @@
 ---
-id: wallets/details
+id: wallets-details
+slug: /wallets/details
 title: Get Wallet Details
 sidebar_position: 3
 ---

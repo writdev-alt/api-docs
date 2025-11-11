@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/banks-wallets
+id: withdraw-account-management-banks-wallets
+slug: /withdraw-account-management/banks-wallets
 title: Get Banks and Wallets Lists
 sidebar_position: 5
 ---

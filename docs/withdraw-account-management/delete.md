@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/delete
+id: withdraw-account-management-delete
+slug: /withdraw-account-management/delete
 title: Delete Withdrawal Account
 sidebar_position: 9
 ---

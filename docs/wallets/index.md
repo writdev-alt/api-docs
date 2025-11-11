@@ -1,5 +1,6 @@
 ---
-id: wallets/index
+id: wallets-index
+slug: /wallets
 title: Wallets Overview
 sidebar_position: 1
 ---

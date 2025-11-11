@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/update
+id: withdraw-account-management-update
+slug: /withdraw-account-management/update
 title: Update Withdrawal Account
 sidebar_position: 8
 ---

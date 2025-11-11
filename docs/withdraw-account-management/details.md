@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/details
+id: withdraw-account-management-details
+slug: /withdraw-account-management/details
 title: Get Withdrawal Account Details
 sidebar_position: 7
 ---

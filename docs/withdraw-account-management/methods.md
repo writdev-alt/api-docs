@@ -1,5 +1,6 @@
 ---
-id: withdraw-account-management/methods
+id: withdraw-account-management-methods
+slug: /withdraw-account-management/methods
 title: Get Withdrawal Methods
 sidebar_position: 4
 ---

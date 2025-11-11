@@ -1,5 +1,6 @@
 ---
-id: wallets/list
+id: wallets-list
+slug: /wallets/list
 title: List Wallets
 sidebar_position: 2
 ---
