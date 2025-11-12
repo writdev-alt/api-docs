@@ -1,4 +1,3 @@
-
 ---
 id: withdrawal
 title: Withdrawal API

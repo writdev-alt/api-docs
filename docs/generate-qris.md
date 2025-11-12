@@ -1,7 +1,11 @@
-
+---
+id: generate-qris
+title: Generate QRIS API
+sidebar_position: 6
+---
 ## Initiate QRIS Payment
 
-Create a QRIS (Quick Response Code Indonesian Standard) payment request that integrates with Netzme payment gateway. This endpoint returns payment information needed for QRIS generation.
+Create a QRIS (Quick Response Code Indonesian Standard) payment request that integrates with payment gateway. This endpoint returns payment information needed for QRIS generation.
 
 **Endpoint:**  
 `POST /api/v1/initiate-payment-qris`
@@ -85,7 +89,7 @@ class QRISPaymentInitiator
                 return [
                     'success' => true,
                     'data' => $data,
-                    'qris_data' => $data // Contains Netzme payment information for QRIS
+                    'qris_data' => $data // Contains payment information for QRIS
                 ];
             }
 
@@ -162,7 +166,7 @@ class QRISPaymentInitiator {
                 return {
                     success: true,
                     data: response.data,
-                    qrisData: response.data // Contains Netzme payment information for QRIS
+                    qrisData: response.data // Contains payment information for QRIS
                 };
             }
         } catch (error) {
@@ -229,7 +233,7 @@ module.exports = { QRISPaymentInitiator, createQRISPayment };
     "totalAmount": 1000,
     "merchantLocation": "JAKARTA PUSAT",
     "expiredTs": "2025-11-12T13:40:33.067+07:00",
-    "invoiceId": "NETZ-INV-M_svCltoL61762927833067ngO",
+    "invoiceId": "INV-M_svCltoL61762927833067ngO",
     "retailOutletData": null,
     "trxId": "TRX-2025.11.12-J0LFYU8CAT",
     "virtualAccountData": [],
