@@ -30,7 +30,7 @@ Complete guide to testing API integration in sandbox environment. Test all featu
 
 ### 2. Configure Your Integration
 
-- Use sandbox domain: `sandbox.{your-domain}` (for example, `sandbox.api.example.com`)
+- Use sandbox domain: `sandbox.ilonapay.com`
 - Use prefixed API credentials
 - Configure webhook endpoints for testing
 - Enable sandbox mode in your merchant settings
@@ -41,8 +41,8 @@ Complete guide to testing API integration in sandbox environment. Test all featu
 
 | Credential Type | Sandbox Format         | Production Format      | Purpose                        |
 |-----------------|-----------------------|-----------------------|--------------------------------|
-| **API Key**     | `api_xxxxxxxxxx`      | `api_xxxxxxxxxx`      | Authentication for API requests|
-| **Merchant Key**| `merchant_xxxxx`      | `merchant_xxxxx`      | Merchant identification        |
+| **API Key**     | `xxxxxxxxxx`      | `xxxxxxxxxx`      | Authentication for API requests|
+| **Merchant Key**| `xxxxx`      | `xxxxx`      | Merchant identification        |
 | **Webhook Secret**| `webhook_secret`    | `webhook_secret`      | IPN signature verification     |
 
 ---
@@ -94,7 +94,7 @@ class SandboxTester
     private $apiKey = 'your_api_key_here';
     private $merchantKey = 'merchant_your_key_here';
     private $environment = 'sandbox';
-    private $baseUrl = 'https://sandbox.api.example.com/api/v1'; // replace with your sandbox host
+    private $baseUrl = 'https://sandbox.ilonapay.com/api/v1'; // replace with your sandbox host
 
     public function testPaymentFlow()
     {
@@ -172,7 +172,7 @@ class SandboxTester {
         this.apiKey = 'your_api_key_here';
         this.merchantKey = 'merchant_your_key_here';
         this.environment = 'sandbox';
-        this.baseUrl = 'https://sandbox.api.example.com/api/v1'; // replace with your sandbox host
+        this.baseUrl = 'https://sandbox.ilonapay.com/api/v1'; // replace with your sandbox host
     }
 
     async testPaymentFlow() {
@@ -250,7 +250,7 @@ tester.testPaymentFlow();
 API_KEY="your_api_key_here"
 MERCHANT_KEY="merchant_your_key_here"
 ENVIRONMENT="sandbox"
-BASE_URL="https://sandbox.api.example.com/api/v1" # replace with your sandbox host
+BASE_URL="https://sandbox.ilonapay.com/api/v1" # replace with your sandbox host
 
 # Test Payment Initiation
 echo "Testing Payment Initiation..."

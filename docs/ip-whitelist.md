@@ -38,9 +38,6 @@ The dashboard lets you configure address type, description, CIDR ranges, expirat
 | Format | Example | Description |
 | --- | --- | --- |
 | `IPv4` | `192.168.1.100` | Standard IPv4 address format |
-| `IPv6` | `2001:0db8:85a3::8a2e:0370:7334` | Standard IPv6 address format |
-| `CIDR Range (IPv4)` | `192.168.1.0/24` | IPv4 range expressed in CIDR notation |
-| `CIDR Range (IPv6)` | `2001:0db8::/32` | IPv6 range expressed in CIDR notation |
 
 ## Find Your Server IP Address
 
