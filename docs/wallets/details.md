@@ -20,8 +20,8 @@ Retrieve detailed information about a specific wallet using its unique identifie
 | Header            | Value               | Required | Description              |
 |-------------------|---------------------|:--------:|--------------------------|
 | `Accept`          | `application/json`  | ✅       | Request content type     |
-| `X-MERCHANT-KEY`  | `\\{merchant_key\\}`    | ✅       | Your API Secret Key      |
-| `X-API-KEY`       | `\\{api_key\\}`         | ✅       | Your API Key             |
+| `X-MERCHANT-KEY`  | `{merchant_key}`    | ✅       | Your API Secret Key      |
+| `X-API-KEY`       | `{api_key}`         | ✅       | Your API Key             |
 
 ### Path Parameters
 

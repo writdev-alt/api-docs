@@ -23,8 +23,8 @@ Delete a withdrawal account. Only accounts belonging to the authenticated user c
 | Header           | Value               | Required | Description                      |
 |------------------|---------------------|----------|----------------------------------|
 | `Accept`         | `application/json`  | ✅       | Specifies the response format.   |
-| `X-MERCHANT-KEY` | `\\{merchant_key\\}`    | ✅       | Your Merchant ID.                |
-| `X-API-KEY`      | `\\{api_key\\}`         | ✅       | Your API Key.                    |
+| `X-MERCHANT-KEY` | `{merchant_key}`    | ✅       | Your Merchant ID.                |
+| `X-API-KEY`      | `{api_key}`         | ✅       | Your API Key.                    |
 
 ## Code Examples
 

@@ -23,8 +23,8 @@ Update an existing withdrawal account. The bank account will be re-verified with
 | Header           | Value               | Required | Description           |
 |------------------|---------------------|----------|-----------------------|
 | `Content-Type`   | `application/json`  | ✅       | Request content type. |
-| `X-MERCHANT-KEY` | `\\{merchant_key\\}`    | ✅       | Your Merchant ID.     |
-| `X-API-KEY`      | `\\{api_key\\}`         | ✅       | Your API Key.         |
+| `X-MERCHANT-KEY` | `{merchant_key}`    | ✅       | Your Merchant ID.     |
+| `X-API-KEY`      | `{api_key}`         | ✅       | Your API Key.         |
 
 ## Request Body
 
