@@ -38,7 +38,7 @@ Retrieve all withdrawal accounts for the authenticated user. Optionally filter b
 <TabItem value="curl">
 
 ```bash
-curl -X GET "https://api.example.com/api/v1/withdraw-accounts?wallet_id=2" \
+curl -X GET "/api/v1/withdraw-accounts?wallet_id=2" \
   -H "Accept: application/json" \
   -H "X-MERCHANT-KEY: merchant_key" \
   -H "X-API-KEY: api_key"
@@ -53,7 +53,7 @@ curl -X GET "https://api.example.com/api/v1/withdraw-accounts?wallet_id=2" \
 
 use Illuminate\Support\Facades\Http;
 
-$baseUrl = 'https://api.example.com/api/v1';
+$baseUrl = '/api/v1';
 $merchantKey = 'merchant_key';
 $apiKey = 'api_key';
 
@@ -75,7 +75,7 @@ $accounts = $response->json();
 ```javascript
 const axios = require('axios');
 
-const baseUrl = 'https://api.example.com/api/v1';
+const baseUrl = '/api/v1';
 const merchantKey = 'merchant_key';
 const apiKey = 'api_key';
 
@@ -103,7 +103,7 @@ axios
 ```python
 import requests
 
-base_url = 'https://api.example.com/api/v1'
+base_url = '/api/v1'
 merchant_key = 'merchant_key'
 api_key = 'api_key'
 

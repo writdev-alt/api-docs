@@ -372,7 +372,7 @@ if __name__ == "__main__":
 {
     "data": [
         {
-            "uuid": "9d5e8c12-3f4a-4b2d-8e1c-6f7a8b9c0d1e",
+            "uuid": "1234567890",
             "balance": 150000,
             "available_balance": 145000,
             "hold_balance": 5000,
@@ -380,7 +380,7 @@ if __name__ == "__main__":
             "currency": "USD"
         },
         {
-            "uuid": "8c4d7b11-2e3a-4a1c-7d0b-5e6a7b8c9d0e",
+            "uuid": "1234567891",
             "balance": 2500000,
             "available_balance": 2450000,
             "hold_balance": 50000,

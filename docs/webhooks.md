@@ -25,7 +25,7 @@ Configure your webhook endpoint to receive instant payment notifications. The we
 | Header      | Description                       | Example        |
 |------------------------|-----------------------------------------------|---------------------------|
 | `Content-Type`         | Always `application/json`          | `application/json`        |
-| `X-Signature`          | HMAC-SHA256 signature for verification | `a8b9c2d1e5f3...`         |
+| `x-signature`          | HMAC-SHA256 signature for verification | `a8b9c2d1e5f3...`         |
 
 ---
 
@@ -80,7 +80,7 @@ class PaymentGatewayWebhookController extends Controller
 {
     public function handle(Request $request): JsonResponse
     {
-        $signature = $request->header('X-Signature');
+        $signature = $request->header('x-signature');
         $secret = config('payment_gateway.webhook_secret');
 
         if (!$this->verifySignature($request->getContent(), $signature, $secret)) {
@@ -187,7 +187,7 @@ logger = logging.getLogger(__name__)
 @csrf_exempt
 @require_http_methods(["POST"])
 def webhook(request):
-    signature = request.headers.get('X-Signature', '')
+    signature = request.headers.get('x-signature', '')
     secret = get_secret_key()
 
     if not verify_signature(request.body, signature, secret):

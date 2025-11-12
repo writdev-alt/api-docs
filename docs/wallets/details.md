@@ -27,7 +27,7 @@ Retrieve detailed information about a specific wallet using its unique identifie
 
 | Parameter | Type   | Required | Description                                                   |
 |-----------|--------|:--------:|----------------------------------------------------------------|
-| `uuid`    | string | ✅       | Wallet UUID (e.g., 9d5e8c12-3f4a-4b2d-8e1c-6f7a8b9c0d1e)      |
+| `uuid`    | string | ✅       | Wallet UUID (e.g., 1234567890)      |
 
 ---
 
@@ -126,7 +126,7 @@ $walletManager = WalletManager::getInstance(
     env('API_KEY')
 );
 
-$walletUuid = '9d5e8c12-3f4a-4b2d-8e1c-6f7a8b9c0d1e';
+$walletUuid = '1234567890';
 $result = $walletManager->getWalletDetail($walletUuid);
 
 if ($result['success']) {
@@ -207,7 +207,7 @@ async function getWallet() {
         process.env.API_KEY
     );
 
-    const walletUuid = '9d5e8c12-3f4a-4b2d-8e1c-6f7a8b9c0d1e';
+    const walletUuid = '1234567890';
 
     try {
         const result = await walletManager.getWalletDetail(walletUuid);
@@ -330,7 +330,7 @@ def get_wallet_detail():
         api_key=os.getenv('API_KEY'),
         timeout=30
     )
-    wallet_uuid = '9d5e8c12-3f4a-4b2d-8e1c-6f7a8b9c0d1e'
+    wallet_uuid = '1234567890'
     result = wallet_manager.get_wallet_detail(wallet_uuid)
 
     if result['success']:
@@ -370,7 +370,7 @@ if __name__ == "__main__":
 ```json
 {
     "data": {
-        "uuid": "9d5e8c12-3f4a-4b2d-8e1c-6f7a8b9c0d1e",
+        "uuid": "1234567890",
         "balance": 150000,
         "available_balance": 145000,
         "hold_balance": 5000,
