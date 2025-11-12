@@ -17,8 +17,8 @@ Create a new withdrawal account for the authenticated user. The bank account wil
 | Header           | Value               | Required | Description             |
 |------------------|---------------------|----------|-------------------------|
 | `Content-Type`   | `application/json`  | ✅       | Request content type.   |
-| `X-MERCHANT-KEY` | `{merchant_key}`    | ✅       | Your Merchant ID.       |
-| `X-API-KEY`      | `{api_key}`         | ✅       | Your API Key.           |
+| `X-MERCHANT-KEY` | `\\{merchant_key\\}`    | ✅       | Your Merchant ID.       |
+| `X-API-KEY`      | `\\{api_key\\}`         | ✅       | Your API Key.           |
 
 ## Request Body
 
@@ -235,4 +235,5 @@ else:
 > - In production, the bank account is verified with the payment gateway before creation.  
 > - Use a valid `bank_code` from the [Get Banks and Wallets Lists](./banks-wallets) endpoint.  
 > - For e-wallet accounts, set `category` to `ewallet`.
+
 

@@ -12,9 +12,7 @@ import TabItem from '@theme/TabItem';
 > ⚠️ **Sandbox Only**  
 > This feature is only available in sandbox/testing environments for development and testing purposes.
 
-**Access the payment status management interface**: 
-
-[Set Payment Status](/payment/set-status)
+**Access the payment status management interface** via your merchant dashboard navigation: go to **Payment → Set Status**.
 
 ![Payment Status Management](/img/set-status-payment.png)
 
@@ -44,8 +42,8 @@ Use this endpoint to retrieve the current status of a transaction. This API allo
 | Header            | Value                | Required | Description                         |
 |-------------------|---------------------|:--------:|-------------------------------------|
 | `Accept`          | `application/json`   | ✅       | Specifies the response format. |
-| `X-MERCHANT-KEY`  | `{merchant_key}`     | ✅       | Your Merchant ID.        |
-| `X-API-KEY`       | `{api_key}`          | ✅       | Your API Key.            |
+| `X-MERCHANT-KEY`  | `\\{merchant_key\\}`     | ✅       | Your Merchant ID.        |
+| `X-API-KEY`       | `\\{api_key\\}`          | ✅       | Your API Key.            |
 
 ### Path Parameters
 
@@ -214,4 +212,5 @@ else:
 ---
 
 > ℹ️ **Note:** The status message will include the transaction type (e.g., "Payment, request status checked successfully" or "Withdrawal, request status checked successfully").
+
 

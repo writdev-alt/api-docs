@@ -22,12 +22,12 @@ Comprehensive API for managing withdrawal accounts. Create, update, delete, and 
 
 ## Endpoint Guides
 
-- [List Withdrawal Accounts](./list)
-- [Get Withdrawal Methods](./methods)
-- [Get Banks and Wallets Lists](./banks-wallets)
-- [Create Withdrawal Account](./create)
-- [Get Withdrawal Account Details](./details)
-- [Update Withdrawal Account](./update)
-- [Delete Withdrawal Account](./delete)
-- [Get Account Information](./info)
+- [List Withdrawal Accounts](./list.md)
+- [Get Withdrawal Methods](./methods.md)
+- [Get Banks and Wallets Lists](./banks-wallets.md)
+- [Create Withdrawal Account](./create.md)
+- [Get Withdrawal Account Details](./details.md)
+- [Update Withdrawal Account](./update.md)
+- [Delete Withdrawal Account](./delete.md)
+- [Get Account Information](./info.md)
 

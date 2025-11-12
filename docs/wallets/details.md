@@ -20,8 +20,8 @@ Retrieve detailed information about a specific wallet using its unique identifie
 | Header            | Value               | Required | Description              |
 |-------------------|---------------------|:--------:|--------------------------|
 | `Accept`          | `application/json`  | ✅       | Request content type     |
-| `X-MERCHANT-KEY`  | `{merchant_key}`    | ✅       | Your API Secret Key      |
-| `X-API-KEY`       | `{api_key}`         | ✅       | Your API Key             |
+| `X-MERCHANT-KEY`  | `\\{merchant_key\\}`    | ✅       | Your API Secret Key      |
+| `X-API-KEY`       | `\\{api_key\\}`         | ✅       | Your API Key             |
 
 ### Path Parameters
 
@@ -402,3 +402,4 @@ if __name__ == "__main__":
 > **Wallet Ownership:** The API validates that the requested wallet belongs to the authenticated merchant. You can only access wallets associated with your account.
 >
 > **Balance Calculation:** The `available_balance` is calculated as: total balance minus `hold_balance`. The `hold_balance` represents funds temporarily locked for pending transactions.
+

@@ -11,8 +11,8 @@ Create a QRIS (Quick Response Code Indonesian Standard) payment request that int
 | Header           | Value                | Required | Description               |
 |------------------|---------------------|----------|---------------------------|
 | Content-Type     | application/json     | ✅       | Request content type      |
-| X-MERCHANT-KEY   | {merchant_key}       | ✅       | Your API Secret Key       |
-| X-API-KEY        | {api_key}            | ✅       | Your API Key              |
+| X-MERCHANT-KEY   | \{merchant_key\}     | ✅       | Your API Secret Key       |
+| X-API-KEY        | \{api_key\}          | ✅       | Your API Key              |
 
 ### Request Parameters
 
@@ -33,7 +33,7 @@ Create a QRIS (Quick Response Code Indonesian Standard) payment request that int
 
 ```bash
 # Basic cURL request for QRIS payment
-curl -X POST "{{ $activeDomain }}/api/v1/initiate-payment-qris" \
+curl -X POST "/api/v1/initiate-payment-qris" \
   -H "Content-Type: application/json" \
   -H "X-MERCHANT-KEY: your_merchant_key_here" \
   -H "X-API-KEY: your_api_key_here" \
@@ -221,18 +221,22 @@ module.exports = { QRISPaymentInitiator, createQRISPayment };
 
 ```json
 {
-    "merchantId": "MERCHANT123",
-    "terminalId": "TERMINAL456", 
-    "amount": "50000.00",
-    "currency": "IDR",
-    "referenceNumber": "TXNQR123456789",
-    "additionalInfo": {
-        "storeId": "STORE001",
-        "productName": "Product Purchase",
-        "paymentCode": "00020101021126650016ID.COM.MAYBANK01",
-        "qrCodeData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...",
-        "expirationTime": "2024-01-15T11:30:00Z"
-    }
+    "qrImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6AAAAOgAQAAAAALviYcAAAOiklEQVR4Xu2bQZLdOA5E6fDCyzqCjqKjSUfTUXSEv6yFozDITJCSe9w9i2l1f0ZkLlwsEsDD32SA/OUW/4LaHzf..",
+    "terminalId": "A01",
+    "nmid": "ID1025434113102",
+    "createdTs": "2025-11-12T13:10:33.108+07:00",
+    "feeAmount": 7,
+    "totalAmount": 1000,
+    "merchantLocation": "JAKARTA PUSAT",
+    "expiredTs": "2025-11-12T13:40:33.067+07:00",
+    "invoiceId": "NETZ-INV-M_svCltoL61762927833067ngO",
+    "retailOutletData": null,
+    "trxId": "TRX-2025.11.12-J0LFYU8CAT",
+    "virtualAccountData": [],
+    "statistic": [],
+    "status": true,
+    "netzmeSeamlessToken": "",
+    "refTrx": "37c84bdb-e6b7-4893-9b02-e4931d90cdce"
 }
 ```
 

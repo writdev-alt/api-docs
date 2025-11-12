@@ -64,19 +64,7 @@ const config: Config = {
     ],
   ],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            to: '/docs/intro',
-            from: '/',
-          },
-        ],
-      },
-    ],
-  ],
+  plugins: [],
 
   themeConfig: {
     // Replace with your project's social card

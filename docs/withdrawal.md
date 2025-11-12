@@ -22,8 +22,8 @@ Initiate a new withdrawal request from a specific wallet to a registered withdra
 | Header              | Value                | Required | Description             |
 |---------------------|---------------------|----------|-------------------------|
 | `Content-Type`      | `application/json`  | ✅       | Request content type.   |
-| `X-MERCHANT-KEY`    | `{merchant_key}`    | ✅       | Your Merchant ID.       |
-| `X-API-KEY`         | `{api_key}`         | ✅       | Your API Key.           |
+| `X-MERCHANT-KEY`    | `\\{merchant_key\\}`    | ✅       | Your Merchant ID.       |
+| `X-API-KEY`         | `\\{api_key\\}`         | ✅       | Your API Key.           |
 
 ---
 
@@ -54,8 +54,8 @@ Initiate a new withdrawal request from a specific wallet to a registered withdra
 ```bash
 curl -X POST "/api/v1/withdraw" \
   -H "Content-Type: application/json" \
-  -H "X-MERCHANT-KEY: {merchant_key}" \
-  -H "X-API-KEY: {api_key}" \
+  -H "X-MERCHANT-KEY: \\{merchant_key\\}" \
+  -H "X-API-KEY: \\{api_key\\}" \
   -d '{"account_id": 2, "wallet_id": 2, "amount": 10000}'
 ```
 
@@ -442,4 +442,5 @@ else:
 | `canceled`  | Withdrawal request was canceled.            |
 | `failed`    | Withdrawal request failed.                  |
 | `rejected`  | Withdrawal request was rejected.            |
+
 

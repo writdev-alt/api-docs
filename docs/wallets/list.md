@@ -20,8 +20,8 @@ Retrieve all wallets belonging to the authenticated merchant with positive balan
 | Header            | Value               | Required | Description                  |
 |-------------------|---------------------|:--------:|------------------------------|
 | `Accept`          | `application/json`  | ✅       | Request content type         |
-| `X-MERCHANT-KEY`  | `{merchant_key}`    | ✅       | Your API Secret Key          |
-| `X-API-KEY`       | `{api_key}`         | ✅       | Your API Key                 |
+| `X-MERCHANT-KEY`  | `\\{merchant_key\\}`    | ✅       | Your API Secret Key          |
+| `X-API-KEY`       | `\\{api_key\\}`         | ✅       | Your API Key                 |
 
 ---
 
@@ -421,3 +421,4 @@ if __name__ == "__main__":
 ---
 
 > **Note:** This endpoint only returns wallets with a positive balance. Empty wallets (balance = 0) are automatically filtered out.
+

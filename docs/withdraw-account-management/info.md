@@ -23,8 +23,8 @@ Retrieve withdrawal method details and limits associated with a withdrawal accou
 | Header           | Value               | Required | Description                      |
 |------------------|---------------------|----------|----------------------------------|
 | `Accept`         | `application/json`  | ✅       | Specifies the response format.   |
-| `X-MERCHANT-KEY` | `{merchant_key}`    | ✅       | Your Merchant ID.                |
-| `X-API-KEY`      | `{api_key}`         | ✅       | Your API Key.                    |
+| `X-MERCHANT-KEY` | `\\{merchant_key\\}`    | ✅       | Your Merchant ID.                |
+| `X-API-KEY`      | `\\{api_key\\}`         | ✅       | Your API Key.                    |
 
 ## Responses
 
@@ -55,4 +55,5 @@ Retrieve withdrawal method details and limits associated with a withdrawal accou
 
 > **ℹ️ Note**  
 > This endpoint provides important information about withdrawal limits, charges, and processing times for the withdrawal method associated with the account. Use this data to display relevant details to your users before they initiate withdrawals.
+
 

@@ -256,8 +256,8 @@ BASE_URL="https://sandbox.ilonapay.com/api/v1" # replace with your sandbox host
 echo "Testing Payment Initiation..."
 curl -X POST "${BASE_URL}/initiate-payment" \
   -H "X-Environment: ${ENVIRONMENT}" \
-  -H "X-API-KEY: ${API_KEY}" \
-  -H "X-MERCHANT-KEY: ${MERCHANT_KEY}" \
+  -H "X-API-KEY: $\\{api_key\\}" \
+  -H "X-MERCHANT-KEY: $\\{merchant_key\\}" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{
@@ -278,8 +278,8 @@ echo -e "\nTesting Payment Verification..."
 TRX_ID="TXN123456789"  # Replace with actual transaction ID
 curl -X GET "${BASE_URL}/verify-payment/${TRX_ID}" \
   -H "X-Environment: ${ENVIRONMENT}" \
-  -H "X-API-KEY: ${API_KEY}" \
-  -H "X-MERCHANT-KEY: ${MERCHANT_KEY}" \
+  -H "X-API-KEY: $\\{api_key\\}" \
+  -H "X-MERCHANT-KEY: $\\{merchant_key\\}" \
   -H "Accept: application/json" | jq .
 ```
 
@@ -362,4 +362,5 @@ curl -X GET "${BASE_URL}/verify-payment/${TRX_ID}" \
 ## Ready for Production?
 
 > **Once you have thoroughly tested all scenarios in sandbox, switch to production mode, update your credentials, and set X-Environment header to "production".**
+
 

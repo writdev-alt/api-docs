@@ -17,8 +17,8 @@ Retrieve available banks and e-wallets from the payment gateway. Use these lists
 | Header           | Value               | Required | Description                      |
 |------------------|---------------------|----------|----------------------------------|
 | `Accept`         | `application/json`  | ✅       | Specifies the response format.   |
-| `X-MERCHANT-KEY` | `{merchant_key}`    | ✅       | Your Merchant ID.                |
-| `X-API-KEY`      | `{api_key}`         | ✅       | Your API Key.                    |
+| `X-MERCHANT-KEY` | `\\{merchant_key\\}`    | ✅       | Your Merchant ID.                |
+| `X-API-KEY`      | `\\{api_key\\}`         | ✅       | Your API Key.                    |
 
 ## Code Examples
 
@@ -178,4 +178,5 @@ else:
 > **💡 Note**  
 > - Use the `bank_id` from the banks array as the `bank_code` parameter when creating bank withdrawal accounts.  
 > - Use the `wallet_id` from the wallets array as the `bank_code` parameter when creating e-wallet withdrawal accounts.
+
 
