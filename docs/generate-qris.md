@@ -228,6 +228,110 @@ module.exports = { QRISPaymentInitiator, createQRISPayment };
 ```
 
   </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+import requests
+import os
+import time
+from typing import Dict, Optional
+
+class QRISPaymentInitiator:
+    def __init__(self, merchant_key: str, api_key: str):
+        self.merchant_key = merchant_key
+        self.api_key = api_key
+        self.base_url = '/api/v1'
+
+    @classmethod
+    def get_instance(cls, merchant_key: str, api_key: str):
+        return cls(merchant_key, api_key)
+
+    def initiate_qris_payment(self, payment_data: Dict) -> Dict:
+        """
+        Initiate a QRIS payment request.
+        
+        Args:
+            payment_data: Dictionary containing payment information
+            
+        Returns:
+            Dictionary with success status and response data
+        """
+        try:
+            headers = {
+                'Content-Type': 'application/json',
+                'X-MERCHANT-KEY': self.merchant_key,
+                'X-API-KEY': self.api_key
+            }
+
+            response = requests.post(
+                f"{self.base_url}/initiate-payment-qris",
+                json=payment_data,
+                headers=headers,
+                timeout=60
+            )
+
+            if response.status_code == 200:
+                data = response.json()
+                return {
+                    'success': True,
+                    'data': data,
+                    'qris_data': data  # Contains payment information for QRIS
+                }
+            else:
+                return {
+                    'success': False,
+                    'error': f"HTTP {response.status_code}: {response.text}",
+                    'status_code': response.status_code
+                }
+
+        except requests.exceptions.RequestException as e:
+            return {
+                'success': False,
+                'error': str(e),
+                'type': 'network_error'
+            }
+        except Exception as e:
+            return {
+                'success': False,
+                'error': str(e)
+            }
+
+
+# Usage Example
+def create_qris_payment():
+    qris_initiator = QRISPaymentInitiator.get_instance(
+        os.getenv('MERCHANT_KEY'),
+        os.getenv('API_KEY')
+    )
+
+    payment_data = {
+        'ref_trx': f'ORDER_{int(time.time())}',
+        'currency_code': 'IDR',
+        'amount': 50000,
+        'expiration_time': 60,
+        'note': 'Product Purchase',
+        'description': 'Online Shopping',
+        'customer_name': 'Jane Doe',
+        'customer_phone': '+6281234567890'
+    }
+
+    try:
+        result = qris_initiator.initiate_qris_payment(payment_data)
+
+        if result['success']:
+            print('QRIS Data:', result['qris_data'])
+            # Implement QRIS generation using result['qris_data']
+        else:
+            print(f"QRIS initiation failed: {result['error']}")
+    except Exception as e:
+        print(f'QRIS payment setup failed: {str(e)}')
+
+
+if __name__ == '__main__':
+    create_qris_payment()
+```
+
+  </TabItem>
 </Tabs>
 
 ### Success Response
