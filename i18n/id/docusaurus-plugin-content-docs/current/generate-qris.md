@@ -70,7 +70,7 @@ class QRISPaymentInitiator
     {
         $this->merchantKey = $merchantKey;
         $this->apiKey = $apiKey;
-        $this->baseUrl = '{{ $activeDomain }}/api/v1';
+        $this->baseUrl = '/api/v1';
     }
 
     public function initiateQRISPayment(array $paymentData): array
@@ -144,7 +144,7 @@ class QRISPaymentInitiator {
     constructor(merchantKey, apiKey) {
         this.merchantKey = merchantKey;
         this.apiKey = apiKey;
-        this.baseUrl = '{{ $activeDomain }}/api/v1';
+        this.baseUrl = '/api/v1';
     }
 
     static getInstance(merchantKey, apiKey) {

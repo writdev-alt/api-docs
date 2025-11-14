@@ -41,7 +41,7 @@ Configure your webhook endpoint to receive instant payment notifications. The we
 
 <TabItem value="receive-payment">
 
-Contoh payload untuk status pembayaran yang diperbarui:
+Example payload for an updated payment status:
 
 ```json
 {
@@ -52,10 +52,10 @@ Contoh payload untuk status pembayaran yang diperbarui:
     "rrn": "fb96da8d931c",
     "amount": "1000.00",
     "currency_code": "IDR",
-    "description": null,
-    "customer_name": null,
-    "customer_email": null,
-    "customer_phone": null,
+    "description": "Receive Payment from QRIS",
+    "customer_name": "John Doe",
+    "customer_email": "john@doe.com",
+    "customer_phone": "62323232222",
     "merchant_id": 1,
     "merchant_name": "Demo Brand",
     "payment_method": "QRIS"
@@ -70,13 +70,13 @@ Contoh payload untuk status pembayaran yang diperbarui:
 
 <TabItem value="withdraw">
 
-Contoh payload untuk status penarikan dana:
+Example payload for withdrawal status:
 
 ```json
 {
   "event": "withdraw",
   "data": {
-    "trx_id": "TRX-BDH2JD8NNY170XO",
+    "trx_id": "TRX-2025.11.14-1-BDH2JD8NNY170XO",
     "trx_reference": "95a190c6-ee73-488b-a386-382310f2d0c1",
     "amount": 50000,
     "net_amount": 50000,
@@ -87,11 +87,11 @@ Contoh payload untuk status penarikan dana:
     "merchant_id": 1,
     "merchant_name": "Demo Brand",
     "withdrawal_method": "Bank Transfer",
-    "account_name": null,
-    "account_holder_name": null,
-    "account_bank_name": null,
-    "account_number": null,
-    "account_bank_code": null,
+    "account_name": "John Doe",
+    "account_holder_name": "John Doe",
+    "account_bank_name": "John Doe",
+    "account_number": "123456789",
+    "account_bank_code": "01",
     "trx_fee": 2000,
     "remarks": "Withdrawal request is completed by Financial Institution",
     "environment": "production",

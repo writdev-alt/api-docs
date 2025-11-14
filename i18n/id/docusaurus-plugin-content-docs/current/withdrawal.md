@@ -51,7 +51,7 @@ Mulai penarikan dana baru dari dompet tertentu ke akun penarikan yang sudah terd
 <TabItem value="curl">
 
 ```bash
-curl -X POST "{{ $activeDomain }}/api/v1/withdraw" \
+curl -X POST "/api/v1/withdraw" \
   -H "Content-Type: application/json" \
   -H "X-MERCHANT-KEY: {merchant_key}" \
   -H "X-API-KEY: {api_key}" \
@@ -67,7 +67,7 @@ curl -X POST "{{ $activeDomain }}/api/v1/withdraw" \
 
 use Illuminate\Support\Facades\Http;
 
-$baseUrl = '{{ $activeDomain }}/api/v1';
+$baseUrl = '/api/v1';
 $merchantKey = "merchant_key";
 $apiKey = "api_key";
 $withdrawalData = [
@@ -92,7 +92,7 @@ $result = $response->json();
 ```javascript
 const axios = require('axios');
 
-const baseUrl = '{{ $activeDomain }}/api/v1';
+const baseUrl = '/api/v1';
 const merchantKey = 'merchant_key';
 const apiKey = 'api_key';
 const withdrawalData = {
@@ -123,7 +123,7 @@ axios.post(`${baseUrl}/withdraw`, withdrawalData, {
 ```python
 import requests
 
-base_url = '{{ $activeDomain }}/api/v1'
+base_url = '/api/v1'
 merchant_key = 'merchant_key'
 api_key = 'api_key'
 withdrawal_data = {
@@ -251,164 +251,3 @@ else:
 | E-Wallet | 3 | GoPay | 167 | 81670000000 | ANDY SUHNO |
 
 ---
-
-## Mengecek Status Penarikan
-
-Periksa status transaksi penarikan. Endpoint publik ini memungkinkan Anda mengecek status penarikan berdasarkan ID transaksi.
-
-**Endpoint:**  
-`GET /api/v1/withdraw/status/{trxId}`
-
----
-
-### Parameter Path
-
-| Parameter | Tipe | Wajib | Deskripsi |
-|------------|--------|----------|-----------------------------------------------|
-| `trxId` | string | ✅ | ID transaksi permintaan penarikan. |
-
----
-
-### Contoh Kode
-
-<Tabs
-  defaultValue="curl-status"
-  values={[
-    {label: 'cURL', value: 'curl-status'},
-    {label: 'PHP / Laravel', value: 'php-status'},
-    {label: 'Node.js', value: 'node-status'},
-    {label: 'Python', value: 'python-status'},
-  ]}
->
-
-<TabItem value="curl-status">
-
-```bash
-curl -X GET "{{ $activeDomain }}/api/v1/withdraw/status/WTH-20250910-12345"
-```
-
-</TabItem>
-
-<TabItem value="php-status">
-
-```php
-<?php
-
-use Illuminate\Support\Facades\Http;
-
-$baseUrl = '{{ $activeDomain }}/api/v1';
-$trxId = 'WTH-20250910-12345';
-
-$response = Http::timeout(60)->get("{$baseUrl}/withdraw/status/{$trxId}");
-
-if ($response->successful()) {
-    $result = $response->json();
-    echo "Status: " . $result['status'];
-    echo "Message: " . $result['message'];
-} else {
-    echo "Error: Transaction not found";
-}
-```
-
-</TabItem>
-
-<TabItem value="node-status">
-
-```javascript
-const axios = require('axios');
-
-const baseUrl = '{{ $activeDomain }}/api/v1';
-const trxId = 'WTH-20250910-12345';
-
-axios.get(`${baseUrl}/withdraw/status/${trxId}`)
-.then(response => {
-    console.log('Status:', response.data.status);
-    console.log('Message:', response.data.message);
-    if (response.data.cancel_redirect) {
-        console.log('Cancel URL:', response.data.cancel_redirect);
-    }
-    if (response.data.success_redirect) {
-        console.log('Success URL:', response.data.success_redirect);
-    }
-})
-.catch(error => {
-    if (error.response) {
-        console.error('Error:', error.response.data.message);
-    } else {
-        console.error('Error:', error.message);
-    }
-});
-```
-
-</TabItem>
-
-<TabItem value="python-status">
-
-```python
-import requests
-
-base_url = '{{ $activeDomain }}/api/v1'
-trx_id = 'WTH-20250910-12345'
-
-response = requests.get(f"{base_url}/withdraw/status/{trx_id}")
-
-if response.status_code == 200:
-    result = response.json()
-    print(f"Status: {result['status']}")
-    print(f"Message: {result['message']}")
-    if result.get('cancel_redirect'):
-        print(f"Cancel URL: {result['cancel_redirect']}")
-    if result.get('success_redirect'):
-        print(f"Success URL: {result['success_redirect']}")
-else:
-    print(f"Error: {response.json()['message']}")
-```
-
-</TabItem>
-
-</Tabs>
-
----
-
-### Respons Berhasil
-
-**200 OK**
-
-```json
-{
-    "status": "completed",
-    "message": "Withdrawal request status checked successfully.",
-    "cancel_redirect": "https://yoursite.com/cancel",
-    "success_redirect": "https://yoursite.com/success"
-}
-```
-
----
-
-### Respons Galat
-
-**404 Not Found**
-
-```json
-{
-    "status": "error",
-    "message": "Withdrawal request not found."
-}
-```
-
----
-
-> **ℹ️ Catatan:**  
-> Endpoint ini bersifat publik dan tidak memerlukan autentikasi. Anda dapat menggunakannya untuk melakukan polling status transaksi.
-
----
-
-### Nilai Status yang Mungkin
-
-| Status | Deskripsi |
-|-------------|---------------------------------------------|
-| `pending` | Permintaan penarikan masih menunggu persetujuan. |
-| `completed` | Penarikan berhasil diproses. |
-| `canceled` | Permintaan penarikan dibatalkan. |
-| `failed` | Permintaan penarikan gagal. |
-| `rejected` | Permintaan penarikan ditolak. |
