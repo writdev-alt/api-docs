@@ -29,31 +29,82 @@ Configure your webhook endpoint to receive instant payment notifications. The we
 
 ---
 
-## Webhook Payload
+## Payload Webhook
 
-All webhook payloads include environment information to help you differentiate between sandbox and production transactions:
+<Tabs
+  defaultValue="receive-payment"
+  values={[
+    {label: 'Status Pembayaran', value: 'receive-payment'},
+    {label: 'Status Penarikan Dana', value: 'withdraw'},
+  ]}
+>
+
+<TabItem value="receive-payment">
+
+Contoh payload untuk status pembayaran yang diperbarui:
 
 ```json
 {
-    "data": {
-        "ref_trx": "TXNT4AQFESTAG4F",
-        "description": "Order #1234",
-        "ipn_url": "https://webhook.site/5711b7d5-917a-4d94-bbb3-c28f4a37bea5",
-        "cancel_redirect": "https://merchant.com/cancel",
-        "success_redirect": "https://merchant.com/success",
-        "customer_name": "John Doe",
-        "customer_email": "john@example.com",
-        "merchant_name": "Your Merchant Name",
-        "amount": 200,
-        "currency_code": "IDR",
-        "environment": "production",
-        "is_sandbox": false
-    },
-    "message": "Payment Completed",
-    "status": "completed",
-    "timestamp": 1705747245
+  "event": "receive_payment",
+  "data": {
+    "trx_id": "TRXJ0LFYU8CAT",
+    "trx_reference": "37c84bdb-e6b7-4893-9b02-e4931d90cdce",
+    "rrn": "fb96da8d931c",
+    "amount": "1000.00",
+    "currency_code": "IDR",
+    "description": null,
+    "customer_name": null,
+    "customer_email": null,
+    "customer_phone": null,
+    "merchant_id": 1,
+    "merchant_name": "Demo Brand",
+    "payment_method": "QRIS"
+  },
+  "message": "Receive Payment via QRIS",
+  "status": "completed",
+  "timestamp": 1762927877
 }
 ```
+
+</TabItem>
+
+<TabItem value="withdraw">
+
+Contoh payload untuk status penarikan dana:
+
+```json
+{
+  "event": "withdraw",
+  "data": {
+    "trx_id": "TRX-BDH2JD8NNY170XO",
+    "trx_reference": "95a190c6-ee73-488b-a386-382310f2d0c1",
+    "amount": 50000,
+    "net_amount": 50000,
+    "payable_amount": 54000,
+    "currency_code": "IDR",
+    "status": "completed",
+    "description": "Withdrawal request is completed by Bank Partner",
+    "merchant_id": 1,
+    "merchant_name": "Demo Brand",
+    "withdrawal_method": "Bank Transfer",
+    "account_name": null,
+    "account_holder_name": null,
+    "account_bank_name": null,
+    "account_number": null,
+    "account_bank_code": null,
+    "trx_fee": 2000,
+    "remarks": "Withdrawal request is completed by Financial Institution",
+    "environment": "production",
+    "is_sandbox": false
+  },
+  "message": "Withdrawal request is completed by Financial Institution",
+  "timestamp": 1763101871
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 ---
 

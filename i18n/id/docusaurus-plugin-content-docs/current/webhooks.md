@@ -34,25 +34,80 @@ Gunakan header di atas untuk memverifikasi bahwa webhook berasal dari IlonaPay d
 
 ## Payload Webhook
 
+<Tabs
+  defaultValue="receive-payment"
+  values={[
+    {label: 'Status Pembayaran', value: 'receive-payment'},
+    {label: 'Status Penarikan Dana', value: 'withdraw'},
+  ]}
+>
+
+<TabItem value="receive-payment">
+
 Contoh payload untuk status pembayaran yang diperbarui:
 
 ```json
 {
-  "event": "payment.updated",
-  "timestamp": 1715606400,
+  "event": "receive_payment",
   "data": {
-    "trx_id": "PAY-20240915-001",
-    "ref_trx": "INV-123456",
-    "status": "completed",
-    "amount": 150000,
+    "trx_id": "TRX-2025.11.12-J0LFYU8CAT",
+    "trx_reference": "37c84bdb-e6b7-4893-9b02-e4931d90cdce",
+    "rrn": "fb96da8d931c",
+    "amount": "1000.00",
     "currency_code": "IDR",
-    "customer": {
-      "name": "John Doe",
-      "email": "john@example.com"
-    }
-  }
+    "description": null,
+    "customer_name": null,
+    "customer_email": null,
+    "customer_phone": null,
+    "merchant_id": 1,
+    "merchant_name": "Demo Brand",
+    "payment_method": "QRIS"
+  },
+  "message": "Receive Payment via QRIS",
+  "status": "completed",
+  "timestamp": 1762927877
 }
 ```
+
+</TabItem>
+
+<TabItem value="withdraw">
+
+Contoh payload untuk status penarikan dana:
+
+```json
+{
+  "event": "withdraw",
+  "data": {
+    "trx_id": "TRX-BDH2JD8NNY170XO",
+    "trx_reference": "95a190c6-ee73-488b-a386-382310f2d0c1",
+    "amount": 50000,
+    "net_amount": 50000,
+    "payable_amount": 54000,
+    "currency_code": "IDR",
+    "status": "completed",
+    "description": "Withdrawal request is completed by Bank Partner",
+    "merchant_id": 1,
+    "merchant_name": "Demo Brand",
+    "withdrawal_method": "Bank Transfer",
+    "account_name": null,
+    "account_holder_name": null,
+    "account_bank_name": null,
+    "account_number": null,
+    "account_bank_code": null,
+    "trx_fee": 2000,
+    "remarks": "Withdrawal request is completed by Financial Institution",
+    "environment": "production",
+    "is_sandbox": false
+  },
+  "message": "Withdrawal request is completed by Financial Institution",
+  "timestamp": 1763101871
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 ### Field Penting
 
