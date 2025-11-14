@@ -51,10 +51,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: 'docs',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/writdev-alt/api-docs',
         },
         blog: false,
         theme: {
@@ -80,7 +81,7 @@ const config: Config = {
       items: [
         {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/writdev-alt/api-docs',
           label: 'GitHub',
           position: 'right',
         },

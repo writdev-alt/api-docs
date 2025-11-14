@@ -18,7 +18,7 @@ Akses antarmuka manajemen untuk menambah, melihat, dan menghapus alamat yang dii
 
 Dasbor memungkinkan Anda mengatur jenis alamat, deskripsi, rentang CIDR, tanggal kedaluwarsa, dan status aktivasi.
 
-![Antarmuka manajemen IP Whitelist](https://sandbox.ilonapay.com/general/static/ip-whitelist.png)
+![Antarmuka manajemen IP Whitelist](/img/ip-whitelist.png)
 
 ## Manfaat Daftar Putih IP
 
@@ -39,7 +39,6 @@ Dasbor memungkinkan Anda mengatur jenis alamat, deskripsi, rentang CIDR, tanggal
 | Format | Contoh | Deskripsi |
 | --- | --- | --- |
 | `IPv4` | `192.168.1.100` | Format alamat IPv4 standar |
-| `IPv6` | `2001:0db8:85a3::8a2e:0370:7334` | Format alamat IPv6 standar |
 | `CIDR Range (IPv4)` | `192.168.1.0/24` | Rentang IPv4 dalam notasi CIDR |
 | `CIDR Range (IPv6)` | `2001:0db8::/32` | Rentang IPv6 dalam notasi CIDR |
 

@@ -33,7 +33,11 @@ Create a QRIS (Quick Response Code Indonesian Standard) payment request that int
 
 ### Code Examples
 
-#### cURL
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
 
 ```bash
 # Basic cURL request for QRIS payment
@@ -53,7 +57,8 @@ curl -X POST "/api/v1/initiate-payment-qris" \
   }'
 ```
 
-#### PHP/Laravel
+  </TabItem>
+  <TabItem value="php" label="PHP/Laravel">
 
 ```php
 <?php
@@ -135,7 +140,8 @@ if ($result['success']) {
 }
 ```
 
-#### Node.js
+  </TabItem>
+  <TabItem value="nodejs" label="Node.js">
 
 ```javascript
 const axios = require('axios');
@@ -220,6 +226,9 @@ async function createQRISPayment() {
 
 module.exports = { QRISPaymentInitiator, createQRISPayment };
 ```
+
+  </TabItem>
+</Tabs>
 
 ### Success Response
 
