@@ -94,6 +94,37 @@ yarn clear
 
 The site is deployed to `https://apidocs.ilonapay.com`
 
+### Vercel Deployment (Recommended)
+
+This project is optimized for Vercel deployment:
+
+1. **Connect your repository to Vercel:**
+   - Go to [Vercel](https://vercel.com)
+   - Import your GitHub repository
+   - Vercel will automatically detect the configuration from `vercel.json`
+
+2. **Automatic deployments:**
+   - Every push to the main branch will trigger a new deployment
+   - Preview deployments are created for pull requests
+
+3. **Environment variables (if needed):**
+   - Add any required environment variables in the Vercel dashboard
+   - Under Project Settings → Environment Variables
+
+4. **Build settings (auto-detected):**
+   - Build Command: `npm run build`
+   - Output Directory: `build`
+   - Install Command: `npm install`
+   - Node.js Version: 20.x (or higher)
+
+The `vercel.json` configuration includes:
+- ✅ Optimized caching headers for static assets
+- ✅ Proper routing for i18n (English & Indonesian)
+- ✅ SPA routing support
+- ✅ Performance optimizations
+
+### GitHub Pages Deployment
+
 For GitHub Pages deployment:
 
 Using SSH:
