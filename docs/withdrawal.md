@@ -162,7 +162,8 @@ else:
     {label: 'Validation Failed — 422', value: 'validation_failed'},
     {label: 'Withdrawals Disabled — 422', value: 'withdrawals_disabled'},
     {label: 'Currency Mismatch — 422', value: 'currency_mismatch'},
-    {label: 'Amount Out of Limits — 422', value: 'amount_out_of_limits'},
+    {label: 'Amount Out of Limits — 422', value: 'amount_out_of_min_limits'},
+    {label: 'Amount Out of Limits — 422', value: 'amount_out_of_max_limits'},
   ]}
 >
 
@@ -170,6 +171,7 @@ else:
 
 ```json
 {
+    "success": true,
     "message": "Withdrawal has been created.",
     "data": {
         "trx_id": "WTH-20250910-12345",
@@ -186,6 +188,8 @@ else:
 
 ```json
 {
+    "success": false,
+    "error": "Validation failed",
     "message": "The given data was invalid.",
     "errors": {
         "amount": ["The amount must be greater than zero."],
@@ -200,6 +204,8 @@ else:
 
 ```json
 {
+    "success": false,
+    "error": "Validation failed",
     "message": "The given data was invalid.",
     "errors": {
         "account_id": ["Withdrawals are not enabled for today."]
@@ -213,6 +219,8 @@ else:
 
 ```json
 {
+    "success": false,
+    "error": "Validation failed",
     "message": "The given data was invalid.",
     "errors": {
         "account_id": ["The currency of account and wallet must be the same."]
@@ -222,13 +230,33 @@ else:
 
 </TabItem>
 
-<TabItem value="amount_out_of_limits">
+<TabItem value="amount_out_of_min_limits">
 
 ```json
 {
-    "message": "The given data was invalid.",
+    "success": false,
+    "error": "Validation failed",
+    "message": "The withdrawal amount is below the minimum limit of 10000.",
     "errors": {
-        "account_id": ["Amount is not within the allowed limits."]
+        "amount": [
+            "The withdrawal amount is below the minimum limit of 10000."
+        ]
+    }
+}
+```
+</TabItem>
+
+<TabItem value="amount_out_of_max_limits">
+
+```json
+{
+    "success": false,
+    "error": "Validation failed",
+    "message": "The withdrawal amount exceeds the maximum limit of 50000000.",
+    "errors": {
+        "amount": [
+            "The withdrawal amount exceeds the maximum limit of 50000000."
+        ]
     }
 }
 ```
