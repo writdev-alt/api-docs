@@ -134,6 +134,57 @@ The `vercel.json` configuration includes:
 - ✅ SPA routing support
 - ✅ Performance optimizations
 
+#### GitHub Actions → Vercel
+
+Continuous deployment is configured via `.github/workflows/vercel-deploy.yml`. To enable it:
+
+1. In your GitHub repo settings, add secrets:
+   - `VERCEL_TOKEN` – Personal token from Vercel dashboard.
+   - `VERCEL_ORG_ID` – Found under **Settings → General → Team**.
+   - `VERCEL_PROJECT_ID` – From the Project settings page.
+2. Ensure the `main` branch is connected to Vercel (or adjust the workflow trigger).
+3. Push to `main` (or run the workflow manually via **Run workflow**). The action installs dependencies, builds the docs, and deploys with `vercel/action@v3` in production mode.
+
+### Google Cloud Run Deployment
+
+1. **Authenticate & set project**
+   ```bash
+   gcloud auth login
+   gcloud config set project <PROJECT_ID>
+   ```
+2. **Enable required APIs (one-time)**
+   ```bash
+   gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com
+   ```
+3. **Create an Artifact Registry repo (one-time)**
+   ```bash
+   gcloud artifacts repositories create ilonapay-docs \
+     --repository-format=docker \
+     --location=<REGION> \
+     --description="IlonaPay API Docs images"
+   ```
+4. **Build & push the container with Cloud Build**
+   ```bash
+   gcloud builds submit \
+     --tag <REGION>-docker.pkg.dev/<PROJECT_ID>/ilonapay-docs/api-docs:$(git rev-parse --short HEAD)
+   ```
+5. **Deploy to Cloud Run**
+   ```bash
+   gcloud run deploy ilonapay-api-docs \
+     --image <REGION>-docker.pkg.dev/<PROJECT_ID>/ilonapay-docs/api-docs:$(git rev-parse --short HEAD) \
+     --region=<REGION> \
+     --platform=managed \
+     --allow-unauthenticated \
+     --port=80 \
+     --min-instances=0 \
+     --max-instances=3
+   ```
+6. **Verify**
+   - Grab the service URL from the deploy output.
+   - Visit the URL to confirm both locales are accessible.
+
+> ℹ️ Cloud Run automatically terminates idle containers; adjust `--min-instances` if you need warm instances, and use Cloud CDN/Load Balancer if you want custom domains or caching.
+
 ### GitHub Pages Deployment
 
 For GitHub Pages deployment:
