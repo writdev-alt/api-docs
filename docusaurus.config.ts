@@ -66,7 +66,19 @@ const config: Config = {
     ],
   ],
 
-  plugins: [],
+  plugins: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        // Options for local search
+        indexBlog: false,
+        docsRouteBasePath: '/docs',
+        language: ['en'],
+        hashed: true,
+        highlightSearchTermsOnTargetPage: true,
+      },
+    ],
+  ],
 
   themeConfig: {
     // Replace with your project's social card
@@ -81,6 +93,10 @@ const config: Config = {
       },
       items: [
         {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs'},
+        {
+          type: 'search',
+          position: 'right',
+        },
         {
           href: 'https://github.com/writdev-alt/api-docs',
           label: 'GitHub',
