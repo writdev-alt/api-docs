@@ -1,6 +1,6 @@
 ---
 id: webhooks
-title: Webhook (IPN)
+title: Webhook
 sidebar_position: 5
 ---
 
@@ -22,11 +22,10 @@ Konfigurasikan endpoint webhook Anda untuk menerima notifikasi pembayaran secara
 
 ## Header Webhook
 
-| Header | Deskripsi | Contoh |
-|---------|-------------------------------|-----------------------------|
-| `X-IPN-SIGNATURE` | Penandatanganan HMAC-SHA256 untuk memverifikasi integritas payload. | `f4f9c7e9e2f...` |
-| `X-IPN-TIMESTAMP` | Timestamp UNIX ketika webhook dikirim. | `1715606400` |
-| `Content-Type` | Format payload webhook. | `application/json` |
+| Header      | Deskripsi                       | Contoh        |
+|------------------------|-----------------------------------------------|---------------------------|
+| `Content-Type`         | Selalu `application/json`          | `application/json`        |
+| `x-signature`          | Signature HMAC-SHA256 untuk verifikasi | `a8b9c2d1e5f3...`         |
 
 Gunakan header di atas untuk memverifikasi bahwa webhook berasal dari IlonaPay dan belum diubah selama proses pengiriman.
 

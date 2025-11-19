@@ -253,7 +253,7 @@ module.exports = { QRISPaymentInitiator, createQRISPayment };
 ```
 
 > **ℹ️ Pembuatan QRIS:**  
-> Gunakan data `additionalInfo` yang dikembalikan untuk menghasilkan kode QRIS untuk pemindaian pembayaran pelanggan.
+> Gunakan data `qrImage` yang dikembalikan untuk menghasilkan kode QRIS untuk pemindaian pembayaran pelanggan.
 
 > **⚠️ Waktu Kedaluwarsa:**  
 > Pembayaran QRIS secara otomatis kedaluwarsa setelah waktu `expiration_time` yang ditentukan (dalam menit). Waktu kedaluwarsa default adalah 60 menit.

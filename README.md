@@ -62,6 +62,17 @@ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+## Docker Build & Run
+
+Build the static site and serve it with Nginx inside Docker:
+
+```bash
+docker build -t ilonapay/api-docs .
+docker run --rm -p 8080:80 ilonapay/api-docs
+```
+
+Then open `http://localhost:8080` to view the docs.
+
 ## Serve Production Build
 
 To test the production build locally:
