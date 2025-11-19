@@ -1,7 +1,7 @@
 # IlonaPay API Documentation
 
 [![Docusaurus](https://img.shields.io/badge/Docusaurus-3.9.2-blue.svg)](https://docusaurus.io/)
-[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20.0-green.svg)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22.0-green.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-blue.svg)](https://www.typescriptlang.org/)
 [![Website](https://img.shields.io/badge/Website-Online-brightgreen.svg)](https://apidocs.ilonapay.com)
 
@@ -17,7 +17,7 @@ This is the official API documentation website for IlonaPay, built using [Docusa
 
 ## Prerequisites
 
-- Node.js >= 20.0
+- Node.js >= 22.0
 - npm or yarn
 
 ## Installation
@@ -126,7 +126,7 @@ This project is optimized for Vercel deployment:
    - Build Command: `npm run build`
    - Output Directory: `build`
    - Install Command: `npm install`
-   - Node.js Version: 20.x (or higher)
+- Node.js Version: 22.x (or higher)
 
 The `vercel.json` configuration includes:
 - ✅ Optimized caching headers for static assets

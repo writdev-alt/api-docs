@@ -1,13 +1,13 @@
 ---
 id: webhooks
-title: Webhooks (IPN)
+title: Webhooks
 sidebar_position: 5
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Webhooks (IPN)
+# Webhooks
 
 Ilonapay sends real-time notifications to your specified IPN URL when payment status changes. This ensures you're immediately notified of payment completions, failures, and other status updates.
 
