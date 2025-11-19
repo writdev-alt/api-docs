@@ -138,10 +138,8 @@ The `vercel.json` configuration includes:
 
 Continuous deployment is configured via `.github/workflows/vercel-deploy.yml`. To enable it:
 
-1. In your GitHub repo settings, add secrets:
-   - `VERCEL_TOKEN` – Personal token from Vercel dashboard.
-   - `VERCEL_ORG_ID` – Found under **Settings → General → Team**.
-   - `VERCEL_PROJECT_ID` – From the Project settings page.
+1. In your GitHub repo settings, add the secret:
+   - `VERCEL_TOKEN` – Personal token from Vercel dashboard (Settings → Tokens).
 2. Ensure the `main` branch is connected to Vercel (or adjust the workflow trigger).
 3. Push to `main` (or run the workflow manually via **Run workflow**). The workflow installs dependencies, runs `vercel pull`, `vercel build --prod`, and publishes the prebuilt output with `vercel deploy --prebuilt --prod`.
 
