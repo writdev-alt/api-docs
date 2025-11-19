@@ -143,7 +143,7 @@ Continuous deployment is configured via `.github/workflows/vercel-deploy.yml`. T
    - `VERCEL_ORG_ID` – Found under **Settings → General → Team**.
    - `VERCEL_PROJECT_ID` – From the Project settings page.
 2. Ensure the `main` branch is connected to Vercel (or adjust the workflow trigger).
-3. Push to `main` (or run the workflow manually via **Run workflow**). The action installs dependencies, builds the docs, and deploys with `vercel/action@v3` in production mode.
+3. Push to `main` (or run the workflow manually via **Run workflow**). The workflow installs dependencies, runs `vercel pull`, `vercel build --prod`, and publishes the prebuilt output with `vercel deploy --prebuilt --prod`.
 
 ### Google Cloud Run Deployment
 
