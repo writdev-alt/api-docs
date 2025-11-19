@@ -267,6 +267,19 @@ else:
 
 ---
 
+### Withdrawal Statuses
+
+| Status                 | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| `awaiting_fi_process`  | Withdrawal has been created and is waiting for the financial institution.   |
+| `awaiting_pg_process`  | Withdrawal is queued at the payment gateway and will be processed shortly.  |
+| `completed`            | Funds have been disbursed successfully.                                     |
+| `failed`               | Withdrawal failed and funds remain in the wallet.                           |
+| `refunded`             | Withdrawal was reversed and funds were returned to the wallet.              |
+| `expired`              | Withdrawal expired before it could be completed.                            |
+
+---
+
 > **⚠️ Important Validations**
 >
 > - Withdrawals must be enabled for the current day based on the withdrawal schedule
