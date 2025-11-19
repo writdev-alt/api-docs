@@ -18,13 +18,18 @@ import TabItem from '@theme/TabItem';
 
 ### Available Payment Status
 
-| Status Code | Status Description                                  |
-|-------------|-----------------------------------------------------|
-| `pending`   | Transaction awaiting payment confirmation |
-| `completed` | Payment process successfully finalized   |
-| `failed`    | Payment process terminated due to error  |
-| `cancelled` | Payment process cancelled by user action |
-| `expired`   | Payment session exceeded time limit      |
+| Status Code               | Category                        | Status Description                                       |
+|---------------------------|----------------------------------|----------------------------------------------------------|
+| `pending`                 | `receive_payment`    | Transaction awaiting payment confirmation                |
+| `awaiting_fi_process`     |  `withdraw`    | Awaiting processing by the financial institution         |
+| `awaiting_pg_process`     |  `withdraw`    | Queued at the payment gateway for further processing     |
+| `awaiting_user_action`    |  `withdraw`    | Merchant/customer must perform an action to proceed      |
+| `awaiting_admin_approval` |  `withdraw`    | Waiting for manual approval from an administrator        |
+| `completed`               | `receive_payment`, `withdraw`    | Payment process successfully finalized                   |
+| `canceled`                | `receive_payment`, `withdraw`    | Payment process canceled by user or system               |
+| `failed`                  | `receive_payment`, `withdraw`    | Payment process terminated due to error                  |
+| `refunded`                |  `withdraw`    | Funds returned to the payer after completion             |
+| `expired`                 | `receive_payment`, `withdraw`    | Payment session exceeded time limit and can’t continue   |
 
 
 
