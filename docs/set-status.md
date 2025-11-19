@@ -169,6 +169,7 @@ else:
 
 <Tabs groupId="status-response" defaultValue="success" values={[
     { label: 'Success', value: 'success' },
+    { label: 'Pending', value: 'pending' },
     { label: '404 Not Found', value: 'not-found' },
     { label: '500 Internal Server Error', value: 'server-error' },
 ]}>
@@ -178,7 +179,34 @@ else:
 ```json
 {
     "status": "completed",
-    "message": "Payment, request status checked successfully."
+    "message": "receive_payment, request status checked successfully.",
+    "data": {
+        "trx_id": "TRX-2025.11.18-CBBTFMQ8CI",
+        "trx_reference": "1e3ff45c-3fab-4894-a2b0-2cf0180a8234",
+        "rrn": "9889cdc74976",
+        "amount": 1000,
+        "currency_code": null,
+        "status": "completed"
+    }
+}
+```
+
+</TabItem>
+
+<TabItem value="pending">
+
+```json
+{
+    "status": "pending",
+    "message": "receive_payment, request status checked successfully.",
+    "data": {
+        "trx_id": "TRX-2025.11.19-XXEAJ4MTLW",
+        "trx_reference": "39bb5912-135a-421a-b947-33a0f0754ee9",
+        "rrn": null,
+        "amount": 1000,
+        "currency_code": null,
+        "status": "pending"
+    }
 }
 ```
 

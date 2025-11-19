@@ -366,7 +366,7 @@ if __name__ == '__main__':
 ```
 
 > **ℹ️ QRIS Generation:**  
-> Use the returned `additionalInfo` data to generate QRIS codes for customer payment scanning.
+> Use the returned `qrImage` data to generate QRIS codes for customer payment scanning.
 
 > **⚠️ Expiration Time:**  
 > QRIS payments automatically expire after the specified `expiration_time` (in minutes). Default expiration is 60 minutes.

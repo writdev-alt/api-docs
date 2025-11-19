@@ -18,6 +18,7 @@ const sidebars: SidebarsConfig = {
     'ip-whitelist',
     'sandbox-guide',
     'generate-qris',
+    'set-status',
     {
       type: 'category',
       label: 'Wallets',
