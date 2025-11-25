@@ -45,6 +45,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
     'webhooks',
+    'RESPONSE_CODES',
     'support',
   ],
 };

@@ -164,6 +164,7 @@ else:
     {label: 'Currency Mismatch — 422', value: 'currency_mismatch'},
     {label: 'Amount Out of Limits — 422', value: 'amount_out_of_min_limits'},
     {label: 'Amount Out of Limits — 422', value: 'amount_out_of_max_limits'},
+    {label: 'Daily Limit Reached — 422', value: 'daily_limit_reached'},
   ]}
 >
 
@@ -172,6 +173,7 @@ else:
 ```json
 {
     "success": true,
+    "code": "2010301",
     "message": "Withdrawal has been created.",
     "data": {
         "trx_id": "WTH-20250910-12345",
@@ -189,7 +191,7 @@ else:
 ```json
 {
     "success": false,
-    "error": "Validation failed",
+    "code": "4220601",
     "message": "The given data was invalid.",
     "errors": {
         "amount": ["The amount must be greater than zero."],
@@ -205,7 +207,7 @@ else:
 ```json
 {
     "success": false,
-    "error": "Validation failed",
+    "code": "4220601",
     "message": "The given data was invalid.",
     "errors": {
         "account_id": ["Withdrawals are not enabled for today."]
@@ -220,7 +222,7 @@ else:
 ```json
 {
     "success": false,
-    "error": "Validation failed",
+    "code": "4220601",
     "message": "The given data was invalid.",
     "errors": {
         "account_id": ["The currency of account and wallet must be the same."]
@@ -235,7 +237,7 @@ else:
 ```json
 {
     "success": false,
-    "error": "Validation failed",
+    "code": "4220601",
     "message": "The withdrawal amount is below the minimum limit of 10000.",
     "errors": {
         "amount": [
@@ -251,11 +253,28 @@ else:
 ```json
 {
     "success": false,
-    "error": "Validation failed",
+    "code": "4220601",
     "message": "The withdrawal amount exceeds the maximum limit of 50000000.",
     "errors": {
         "amount": [
             "The withdrawal amount exceeds the maximum limit of 50000000."
+        ]
+    }
+}
+```
+
+</TabItem>
+
+<TabItem value="daily_limit_reached">
+
+```json
+{
+    "success": false,
+    "code": "4220601",
+    "message": "You have reached the maximum limit of 9 withdrawals to this account per day.",
+    "errors": {
+        "account_id": [
+            "You have reached the maximum limit of 9 withdrawals to this account per day."
         ]
     }
 }

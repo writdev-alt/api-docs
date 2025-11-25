@@ -127,6 +127,9 @@ else:
 
 ```json
 {
+  "success": true,
+  "code": "2000301",
+  "message": "Withdrawal methods retrieved successfully",
   "data": [
     {
       "id": 1,

@@ -138,6 +138,9 @@ else:
 
 ```json
 {
+  "success": true,
+  "code": "2000301",
+  "message": "Withdrawal accounts retrieved successfully",
   "data": [
     {
       "id": 1,

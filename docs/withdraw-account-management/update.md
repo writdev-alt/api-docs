@@ -178,12 +178,17 @@ else:
 
 <Tabs groupId="withdraw-update-response" defaultValue="success" values={[
     { label: 'Success', value: 'success' },
+    { label: 'Not Found — 404', value: 'not_found' },
+    { label: 'Validation Error — 422', value: 'validation' },
 ]}>
 
 <TabItem value="success">
 
 ```json
 {
+  "success": true,
+  "code": "2000301",
+  "message": "Withdrawal account updated successfully",
   "data": {
     "id": 1,
     "user_id": 123,
@@ -205,6 +210,38 @@ else:
       "name": "Bank Transfer",
       "currency": "IDR"
     }
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="not_found">
+
+```json
+{
+  "success": false,
+  "code": "4040003",
+  "message": "Withdrawal account not found"
+}
+```
+
+</TabItem>
+
+<TabItem value="validation">
+
+```json
+{
+  "success": false,
+  "code": "4220601",
+  "message": "Validation failed",
+  "errors": {
+    "bank_code": [
+      "Invalid bank account"
+    ],
+    "account_number": [
+      "The account number field is required."
+    ]
   }
 }
 ```

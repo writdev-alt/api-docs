@@ -186,6 +186,9 @@ else:
 
 ```json
 {
+  "success": true,
+  "code": "2010301",
+  "message": "Akun penarikan telah dibuat.",
   "data": {
     "id": 1,
     "user_id": 123,
@@ -218,10 +221,11 @@ else:
 ```json
 {
   "success": false,
-  "message": "Validation failed",
+  "code": "4220601",
+  "message": "Validasi gagal",
   "errors": {
     "bank_code": [
-      "Invalid bank account"
+      "Akun bank tidak valid"
     ]
   }
 }

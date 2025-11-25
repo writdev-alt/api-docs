@@ -30,12 +30,16 @@ Retrieve details of a specific withdrawal account by ID.
 
 <Tabs groupId="withdraw-details-response" defaultValue="success" values={[
     { label: 'Success', value: 'success' },
+    { label: 'Not Found — 404', value: 'not_found' },
 ]}>
 
 <TabItem value="success">
 
 ```json
 {
+  "success": true,
+  "code": "2000301",
+  "message": "Withdrawal account retrieved successfully",
   "data": {
     "id": 1,
     "user_id": 123,
@@ -58,6 +62,18 @@ Retrieve details of a specific withdrawal account by ID.
       "currency": "IDR"
     }
   }
+}
+```
+
+</TabItem>
+
+<TabItem value="not_found">
+
+```json
+{
+  "success": false,
+  "code": "4040003",
+  "message": "Withdrawal account not found"
 }
 ```
 

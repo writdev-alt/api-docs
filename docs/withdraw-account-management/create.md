@@ -186,6 +186,9 @@ else:
 
 ```json
 {
+  "success": true,
+  "code": "2010301",
+  "message": "Withdrawal account has been created.",
   "data": {
     "id": 1,
     "user_id": 123,
@@ -218,6 +221,7 @@ else:
 ```json
 {
   "success": false,
+  "code": "4220601",
   "message": "Validation failed",
   "errors": {
     "bank_code": [
