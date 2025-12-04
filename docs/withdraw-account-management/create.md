@@ -238,6 +238,5 @@ else:
 > **⚠️ Important**  
 > - In production, the bank account is verified with the payment gateway before creation.  
 > - Use a valid `bank_code` from the [Get Banks and Wallets Lists](./banks-wallets) endpoint.  
-> - For e-wallet accounts, set `category` to `ewallet`.
 
 
