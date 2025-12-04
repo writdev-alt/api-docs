@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 > ⚠️ **Sandbox Only**  
 > This feature is only available in sandbox/testing environments for development and testing purposes.
 
-**Access the payment status management interface** via your merchant dashboard navigation: go to **Payment → Set Status**.
+**Access the payment status management interface** via this [endpoint](https://sandbox.ilonapay.com/payment/set-status).
 
 ![Payment Status Management](/img/set-status-payment.png)
 
