@@ -29,6 +29,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
     'withdrawal',
+    'check-withdraw',
     {
       type: 'category',
       label: 'Withdraw Account Management',

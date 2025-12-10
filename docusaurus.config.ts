@@ -57,6 +57,11 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/writdev-alt/api-docs',
+          versions: {
+            current: {
+              label: '1.0.0',
+            },
+          },
         },
         blog: false,
         theme: {
@@ -76,6 +81,7 @@ const config: Config = {
         language: ['en'],
         hashed: true,
         highlightSearchTermsOnTargetPage: true,
+        indexPages: false,
       },
     ],
   ],
@@ -93,6 +99,11 @@ const config: Config = {
       },
       items: [
         {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs'},
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+        },
         {
           type: 'search',
           position: 'right',

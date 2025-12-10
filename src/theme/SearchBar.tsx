@@ -5,7 +5,7 @@ import type {WrapperProps} from '@docusaurus/types';
 
 type Props = WrapperProps<typeof SearchBarType>;
 
-export default function SearchBarWrapper(props: Props): JSX.Element {
+export default function SearchBarWrapper(props: Props): React.JSX.Element {
   return (
     <>
       <SearchBar {...props} />

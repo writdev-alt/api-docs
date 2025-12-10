@@ -1,0 +1,37 @@
+{
+  "tutorialSidebar": [
+    "intro",
+    "ip-whitelist",
+    "sandbox-guide",
+    "generate-qris",
+    "set-status",
+    {
+      "type": "category",
+      "label": "Wallets",
+      "items": [
+        "wallets/wallets-index",
+        "wallets/wallets-list",
+        "wallets/wallets-details"
+      ]
+    },
+    "withdrawal",
+    {
+      "type": "category",
+      "label": "Withdraw Account Management",
+      "items": [
+        "withdraw-account-management/withdraw-account-management-index",
+        "withdraw-account-management/withdraw-account-management-list",
+        "withdraw-account-management/withdraw-account-management-info",
+        "withdraw-account-management/withdraw-account-management-methods",
+        "withdraw-account-management/withdraw-account-management-banks-wallets",
+        "withdraw-account-management/withdraw-account-management-create",
+        "withdraw-account-management/withdraw-account-management-details",
+        "withdraw-account-management/withdraw-account-management-update",
+        "withdraw-account-management/withdraw-account-management-delete"
+      ]
+    },
+    "webhooks",
+    "RESPONSE_CODES",
+    "support"
+  ]
+}
