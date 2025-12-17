@@ -2,7 +2,7 @@
 
 [![Docusaurus](https://img.shields.io/badge/Docusaurus-3.9.2-blue.svg)](https://docusaurus.io/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22.0-green.svg)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-blue.svg)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue.svg)](https://www.typescriptlang.org/)
 [![Website](https://img.shields.io/badge/Website-Online-brightgreen.svg)](https://apidocs.ilonapay.com)
 
 This is the official API documentation website for IlonaPay, built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
@@ -18,18 +18,12 @@ This is the official API documentation website for IlonaPay, built using [Docusa
 ## Prerequisites
 
 - Node.js >= 22.0
-- npm or yarn
+- npm (preferred; lockfile committed)
 
 ## Installation
 
 ```bash
 npm install
-```
-
-or
-
-```bash
-yarn install
 ```
 
 ## Local Development
