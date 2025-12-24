@@ -33,6 +33,7 @@ Initiate a new withdrawal request from a specific wallet to a registered withdra
 | `account_id` | number | ✅       | The ID of the withdrawal account. Use the ID from the `Get Withdrawal Accounts` endpoint.      |
 | `wallet_id`  | string | ✅       | The ID of the wallet from which to withdraw funds.                                             |
 | `amount`     | number | ✅       | The amount to withdraw.                                                                        |
+| `ref_trx`    | string | ✅       | Unique reference you generate per request for tracking/idempotency.                            |
 
 ---
 
@@ -55,7 +56,7 @@ curl -X POST "/api/v1/withdraw" \
   -H "Content-Type: application/json" \
   -H "X-MERCHANT-KEY: {merchant_key}" \
   -H "X-API-KEY: {api_key}" \
-  -d '{"account_id": 2, "wallet_id": "1234567890", "amount": 10000}'
+  -d '{"account_id": 2, "wallet_id": "1234567890", "amount": 10000, "ref_trx": "WTH-REF-123456"}'
 ```
 
 </TabItem>
@@ -74,6 +75,7 @@ $withdrawalData = [
     'account_id' => 2,
     'wallet_id' => "1234567890",
     'amount' => 10000,
+    'ref_trx' => "WTH-REF-123456",
 ];
 
 $response = Http::timeout(60)->withHeaders([
@@ -99,6 +101,7 @@ const withdrawalData = {
     account_id: 2,
     wallet_id: "1234567890",
     amount: 10000,
+    ref_trx: "WTH-REF-123456",
 };
 
 axios.post(`${baseUrl}/withdraw`, withdrawalData, {
@@ -130,6 +133,7 @@ withdrawal_data = {
     'account_id': 2,
     'wallet_id': "1234567890",
     'amount': 10000,
+    'ref_trx': "WTH-REF-123456",
 }
 
 headers = {
@@ -179,7 +183,8 @@ else:
         "trx_id": "WTH-20250910-12345",
         "amount": 10000,
         "account_id": "1234567890",
-        "wallet_id": "1234567890"
+        "wallet_id": "1234567890",
+        "ref_trx": "WTH-REF-123456"
     }
 }
 ```
