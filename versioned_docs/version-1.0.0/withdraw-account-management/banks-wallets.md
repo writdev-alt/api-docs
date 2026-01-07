@@ -155,7 +155,7 @@ else:
             },
             {
                 "bank_id": "6",
-                "bank_name": "BANK Central Asia"
+                "bank_name": "BANK BCA"
             },
             {
                 "bank_id": "7",
@@ -190,16 +190,8 @@ else:
                 "bank_name": "BANK ARTHA GRAHA INTERNASIONAL"
             },
             {
-                "bank_id": "15",
-                "bank_name": "BANK OF TOKYO MITSUBISHI UFJ"
-            },
-            {
                 "bank_id": "16",
                 "bank_name": "BANK DBS INDONESIA"
-            },
-            {
-                "bank_id": "17",
-                "bank_name": "BANK STANDARD CHARTERED"
             },
             {
                 "bank_id": "18",
@@ -294,10 +286,6 @@ else:
                 "bank_name": "BANK BNI SYARIAH"
             },
             {
-                "bank_id": "41",
-                "bank_name": "BANK BUKOPIN"
-            },
-            {
                 "bank_id": "42",
                 "bank_name": "BANK SYARIAH MANDIRI"
             },
@@ -315,7 +303,7 @@ else:
             },
             {
                 "bank_id": "46",
-                "bank_name": "BANK YUDHA BHAKTI"
+                "bank_name": "BANK NEO COMMERCE"
             },
             {
                 "bank_id": "47",
@@ -327,11 +315,11 @@ else:
             },
             {
                 "bank_id": "49",
-                "bank_name": "BANK ROYAL INDONESIA"
+                "bank_name": "BANK DIGITAL BCA"
             },
             {
                 "bank_id": "50",
-                "bank_name": "BANK NATIONALNOBU"
+                "bank_name": "NOBU BANK"
             },
             {
                 "bank_id": "51",
@@ -350,20 +338,16 @@ else:
                 "bank_name": "BANK PRIMA MASTER BANK"
             },
             {
-                "bank_id": "55",
-                "bank_name": "BANK SYARIAH BUKOPIN"
-            },
-            {
                 "bank_id": "56",
                 "bank_name": "BANK SAHABAT SAMPOERNA"
             },
             {
                 "bank_id": "57",
-                "bank_name": "BANK OK INDONESIA"
+                "bank_name": "BANK OKE INDONESIA"
             },
             {
                 "bank_id": "58",
-                "bank_name": "BANK KESEJAHTERAAN. EKONOMI / PT. BANK SEABANK INDONESIA"
+                "bank_name": "SEABANK"
             },
             {
                 "bank_id": "59",
@@ -371,7 +355,7 @@ else:
             },
             {
                 "bank_id": "60",
-                "bank_name": "BANK ARTOS / BANK JAGO"
+                "bank_name": "BANK JAGO"
             },
             {
                 "bank_id": "61",
@@ -399,7 +383,7 @@ else:
             },
             {
                 "bank_id": "67",
-                "bank_name": "BANK HARDA INTERNASIONAL"
+                "bank_name": "ALLO BANK INDONESIA"
             },
             {
                 "bank_id": "68",
@@ -415,351 +399,235 @@ else:
             },
             {
                 "bank_id": "71",
-                "bank_name": "BPD BJB"
+                "bank_name": "BANK BJB"
             },
             {
                 "bank_id": "72",
-                "bank_name": "BPD DKI"
+                "bank_name": "BANK DKI"
             },
             {
                 "bank_id": "73",
-                "bank_name": "BPD DIY"
+                "bank_name": "BANK DIY"
             },
             {
                 "bank_id": "74",
-                "bank_name": "BPD JATENG"
+                "bank_name": "BANK JATENG"
             },
             {
                 "bank_id": "75",
-                "bank_name": "BPD JATIM"
+                "bank_name": "BANK JATIM"
             },
             {
                 "bank_id": "76",
-                "bank_name": "BPD JAMBI"
-            },
-            {
-                "bank_id": "77",
-                "bank_name": "BPD ACEH SYARIAH"
+                "bank_name": "BANK JAMBI"
             },
             {
                 "bank_id": "78",
-                "bank_name": "BPD SUMATERA UTARA"
+                "bank_name": "BANK SUMATERA UTARA"
             },
             {
                 "bank_id": "79",
-                "bank_name": "BPD SUMBAR"
+                "bank_name": "BANK SUMBAR"
             },
             {
                 "bank_id": "80",
-                "bank_name": "BPD RIAU KEPRI"
+                "bank_name": "BANK RIAU KEPRI"
             },
             {
                 "bank_id": "81",
-                "bank_name": "BPD SUMSELBABEL"
+                "bank_name": "BANK SUMSELBABEL"
             },
             {
                 "bank_id": "82",
-                "bank_name": "BPD LAMPUNG"
+                "bank_name": "BANK LAMPUNG"
             },
             {
                 "bank_id": "83",
-                "bank_name": "BPD KALIMANTAN SELATAN"
+                "bank_name": "BANK KALIMANTAN SELATAN"
             },
             {
                 "bank_id": "84",
-                "bank_name": "BPD KALBAR"
+                "bank_name": "BANK KALIMANTAN BARAT"
             },
             {
                 "bank_id": "85",
-                "bank_name": "BPD KALTIM KALTARA"
+                "bank_name": "BANK KALTIM KALTARA"
             },
             {
                 "bank_id": "86",
-                "bank_name": "BPD KALIMANTAN TENGAH"
+                "bank_name": "BANK KALIMANTAN TENGAH"
             },
             {
                 "bank_id": "87",
-                "bank_name": "BPD SULSELBAR"
+                "bank_name": "BANK SULSELBAR"
             },
             {
                 "bank_id": "88",
-                "bank_name": "BPD SULUT GO"
-            },
-            {
-                "bank_id": "89",
-                "bank_name": "BPD NUSA TENGGARA BARAT"
+                "bank_name": "BANK SULUT GORONTALO"
             },
             {
                 "bank_id": "90",
-                "bank_name": "BPD BALI"
+                "bank_name": "BANK BALI"
             },
             {
                 "bank_id": "91",
-                "bank_name": "BPD NUSA TENGGARA TIMUR"
+                "bank_name": "BANK NUSA TENGGARA TIMUR"
             },
             {
                 "bank_id": "92",
-                "bank_name": "BPD MALUKU DAN MALUKU UTARA"
+                "bank_name": "BANK MALUKU DAN MALUKU UTARA"
             },
             {
                 "bank_id": "93",
-                "bank_name": "BPD PAPUA"
+                "bank_name": "BANK PAPUA"
             },
             {
                 "bank_id": "94",
-                "bank_name": "BPD BENGKULU"
+                "bank_name": "BANK BENGKULU"
             },
             {
                 "bank_id": "95",
-                "bank_name": "BPD SULAWESI TENGAH"
+                "bank_name": "BANK SULAWESI TENGAH"
             },
             {
                 "bank_id": "96",
-                "bank_name": "BPD SULAWESI TENGGARA"
+                "bank_name": "BANK SULAWESI TENGGARA"
             },
             {
                 "bank_id": "97",
-                "bank_name": "BPD BANTEN"
+                "bank_name": "BANK BANTEN"
             },
             {
                 "bank_id": "98",
-                "bank_name": "PT. BANK CIMB NIAGA TBK - UUS"
+                "bank_name": "BANK CIMB NIAGA TBK UUS"
             },
             {
                 "bank_id": "100",
-                "bank_name": "PT. BPD KALIMANTAN BARAT UUS"
+                "bank_name": "BANK KALIMANTAN BARAT UUS"
             },
             {
                 "bank_id": "101",
-                "bank_name": "PT. BPD SUMSEL BABEL - UUS"
+                "bank_name": "BANK SUMSEL BABEL UUS"
             },
             {
                 "bank_id": "102",
-                "bank_name": "PT. BANK JAGO TBK UUS"
+                "bank_name": "BANK JAGO TBK UUS"
             },
             {
                 "bank_id": "103",
-                "bank_name": "PT. BPD KALIMANTAN SELATAN UUS"
+                "bank_name": "BANK KALIMANTAN SELATAN UUS"
             },
             {
                 "bank_id": "104",
-                "bank_name": "PT BPD DIY - UUS"
+                "bank_name": "BANK DIY UUS"
             },
             {
                 "bank_id": "105",
-                "bank_name": "PT. BANK NAGARI - UUS"
+                "bank_name": "BANK NAGARI UUS"
             },
             {
                 "bank_id": "106",
-                "bank_name": "PT. BANK MAYBANK INDONESIA - UUS"
+                "bank_name": "BANK MAYBANK INDONESIA UUS"
             },
             {
                 "bank_id": "107",
-                "bank_name": "PT. BANK DANAMON INDONESIA UUS"
+                "bank_name": "BANK DANAMON INDONESIA UUS"
             },
             {
                 "bank_id": "108",
-                "bank_name": "PT. BANK SINARMAS TBK. - UUS"
+                "bank_name": "BANK SINARMAS UUS"
             },
             {
                 "bank_id": "109",
-                "bank_name": "PT. BANK TABUNGAN NEGARA UUS"
+                "bank_name": "BANK TABUNGAN NEGARA UUS"
             },
             {
                 "bank_id": "110",
-                "bank_name": "PT. BANK PERMATA,TBK UUS"
+                "bank_name": "BANK PERMATA UUS"
             },
             {
                 "bank_id": "111",
-                "bank_name": "PT. BPD RIAU KEPRI SYARIAH"
+                "bank_name": "BANK RIAU KEPRI SYARIAH"
             },
             {
                 "bank_id": "112",
-                "bank_name": "PT. BPD JAWA TENGAH UUS"
+                "bank_name": "BANK JAWA TENGAH UUS"
             },
             {
                 "bank_id": "113",
-                "bank_name": "PT. BANK DKI UUS"
+                "bank_name": "BANK DKI UUS"
             },
             {
                 "bank_id": "114",
-                "bank_name": "PT. BPD JAWA TIMUR UUS"
+                "bank_name": "BANK JAWA TIMUR UUS"
             },
             {
                 "bank_id": "115",
-                "bank_name": "PT. KSEI"
+                "bank_name": "KSEI"
             },
             {
                 "bank_id": "116",
-                "bank_name": "PT. BANK SYARIAH INDONESIA"
-            },
-            {
-                "bank_id": "117",
-                "bank_name": "PT. BANK PANIN DUBAI SYARIAH"
-            },
-            {
-                "bank_id": "118",
-                "bank_name": "PT AIRPAY INTERNATIONAL"
-            },
-            {
-                "bank_id": "119",
-                "bank_name": "PT. BANK VICTORIA INTERNATIONAL"
+                "bank_name": "BANK SYARIAH INDONESIA"
             },
             {
                 "bank_id": "120",
-                "bank_name": "PT. BANK SULSELBAR UUS"
+                "bank_name": "BANK SULSELBAR UUS"
             },
             {
                 "bank_id": "121",
-                "bank_name": "PT BANK KB BUKOPIN SYARIAH"
-            },
-            {
-                "bank_id": "122",
-                "bank_name": "PT. BANK COMMONWEALTH"
+                "bank_name": "BANK KB BUKOPIN SYARIAH"
             },
             {
                 "bank_id": "123",
-                "bank_name": "PT. BANK OCBC NISP UUS"
+                "bank_name": "BANK OCBC NISP UUS"
             },
             {
                 "bank_id": "124",
-                "bank_name": "PT. BANK ACEH SYARIAH"
+                "bank_name": "BANK ACEH SYARIAH"
             },
             {
                 "bank_id": "125",
                 "bank_name": "PT. ESPAY DEBIT INDONESIA KOE"
             },
             {
-                "bank_id": "126",
-                "bank_name": "PT BPD SULAWESI TENGAH"
-            },
-            {
                 "bank_id": "127",
-                "bank_name": "PT BANK AMAR INDONESIA"
-            },
-            {
-                "bank_id": "128",
-                "bank_name": "PT BANK JTRUST INDONESIA, TBK"
-            },
-            {
-                "bank_id": "129",
-                "bank_name": "PT OKE INDONESIA TBK"
+                "bank_name": "BANK AMAR INDONESIA"
             },
             {
                 "bank_id": "130",
-                "bank_name": "PT. BANK MIZUHO INDONESIA"
+                "bank_name": "BANK MIZUHO INDONESIA"
             },
             {
                 "bank_id": "131",
-                "bank_name": "KC JPMORGAN CHASE BANK, N.A"
+                "bank_name": "KC JPMORGAN CHASE BANK"
             },
             {
                 "bank_id": "132",
-                "bank_name": "BANK OF AMERICA, N.A"
-            },
-            {
-                "bank_id": "133",
-                "bank_name": "PT. BPD BANTEN, TBK"
-            },
-            {
-                "bank_id": "134",
-                "bank_name": "PT. BPD KALTIM DAN KALTARA"
+                "bank_name": "BANK OF AMERICA"
             },
             {
                 "bank_id": "135",
-                "bank_name": "PT. BANK ALADIN SYARIAH TBK"
-            },
-            {
-                "bank_id": "136",
-                "bank_name": "PT. BPD BENGKULU"
-            },
-            {
-                "bank_id": "137",
-                "bank_name": "PT. BANK IBK INDONESIA, TBK"
-            },
-            {
-                "bank_id": "138",
-                "bank_name": "PT. BPD MALUKU DAN MALUKU UTARA"
+                "bank_name": "BANK ALADIN SYARIAH TBK"
             },
             {
                 "bank_id": "139",
-                "bank_name": "PT.BPD SUMATERA UTARA UUS"
-            },
-            {
-                "bank_id": "140",
-                "bank_name": "PT. BANK SULSELBAR"
-            },
-            {
-                "bank_id": "141",
-                "bank_name": "PT. BANK MEGA SYARIAH"
+                "bank_name": "BANK SUMATERA UTARA UUS"
             },
             {
                 "bank_id": "142",
-                "bank_name": "PT. BANK RESONA PERDANIA"
-            },
-            {
-                "bank_id": "143",
-                "bank_name": "PT. BPD SUMATERA UTARA"
-            },
-            {
-                "bank_id": "144",
-                "bank_name": "PT. BANK CHINA CONSTRUCTION, TBK"
-            },
-            {
-                "bank_id": "145",
-                "bank_name": "PT. BANK QNB INDONESIA TBK"
-            },
-            {
-                "bank_id": "146",
-                "bank_name": "PT. BPD SULAWESI TENGGARA"
-            },
-            {
-                "bank_id": "147",
-                "bank_name": "PT. BPD SULUT GORONTALO"
+                "bank_name": "BANK RESONA PERDANIA"
             },
             {
                 "bank_id": "148",
-                "bank_name": "PT. BPD KALTIM DAN KALTARA UUS"
-            },
-            {
-                "bank_id": "149",
-                "bank_name": "PT BANK SHINHAN INDONESIA"
-            },
-            {
-                "bank_id": "150",
-                "bank_name": "PT BANK ANZ INDONESIA"
-            },
-            {
-                "bank_id": "151",
-                "bank_name": "PT BPD LAMPUNG"
-            },
-            {
-                "bank_id": "152",
-                "bank_name": "PT BANK BNP PARIBAS INDONESIA"
+                "bank_name": "BANK KALTIM DAN KALTARA UUS"
             },
             {
                 "bank_id": "153",
-                "bank_name": "PT. BPD JAMBI UUS"
-            },
-            {
-                "bank_id": "154",
-                "bank_name": "PT. BPD JAMBI"
-            },
-            {
-                "bank_id": "155",
-                "bank_name": "PT. BPD KALIMANTAN TENGAH"
-            },
-            {
-                "bank_id": "156",
-                "bank_name": "PT. BANK BTPN SYARIAH TBK"
+                "bank_name": "BANK JAMBI UUS"
             },
             {
                 "bank_id": "157",
-                "bank_name": "PT. BANK NTB SYARIAH"
-            },
-            {
-                "bank_id": "158",
-                "bank_name": "PT. BANK OF CHINA (HONG KONG)"
+                "bank_name": "BANK NTB SYARIAH"
             },
             {
                 "bank_id": "159",
@@ -767,7 +635,7 @@ else:
             },
             {
                 "bank_id": "160",
-                "bank_name": "PT BANK KB BUKOPIN, TBK"
+                "bank_name": "BANK KB BUKOPIN"
             },
             {
                 "bank_id": "161",
@@ -775,11 +643,11 @@ else:
             },
             {
                 "bank_id": "162",
-                "bank_name": "MUFG Bank, LTD."
+                "bank_name": "MUFG Bank"
             },
             {
                 "bank_id": "163",
-                "bank_name": "BANK SHINHAN"
+                "bank_name": "BANK SHINHAN INDONESIA"
             },
             {
                 "bank_id": "168",
@@ -787,19 +655,19 @@ else:
             },
             {
                 "bank_id": "169",
-                "bank_name": "PT.SUPER BANK INDONESIA"
+                "bank_name": "SUPERBANK"
             },
             {
                 "bank_id": "170",
-                "bank_name": "PT KROM BANK INDONESIA, TBK"
+                "bank_name": "KROM BANK INDONESIA"
             },
             {
                 "bank_id": "171",
-                "bank_name": "PT BANK NANO SYARIAH"
+                "bank_name": "BANK NANO SYARIAH"
             },
             {
                 "bank_id": "172",
-                "bank_name": "BANK BNP"
+                "bank_name": "BANK BNP PARIBAS INDONESIA"
             },
             {
                 "bank_id": "173",
@@ -815,11 +683,7 @@ else:
             },
             {
                 "bank_id": "176",
-                "bank_name": "MANDIRI - BPR"
-            },
-            {
-                "bank_id": "177",
-                "bank_name": "BPR KS"
+                "bank_name": "MANDIRI BPR"
             },
             {
                 "bank_id": "178",
@@ -858,10 +722,6 @@ else:
                 "bank_name": "ISO"
             },
             {
-                "bank_id": "187",
-                "bank_name": "BPR KRYJATNIKA SDY"
-            },
-            {
                 "bank_id": "188",
                 "bank_name": "TELKOM"
             },
@@ -888,6 +748,82 @@ else:
             {
                 "bank_id": "195",
                 "bank_name": "DIGITAL SOLUSI PTM"
+            },
+            {
+                "bank_id": "196",
+                "bank_name": "BANK PANIN SYARIAH"
+            },
+            {
+                "bank_id": "197",
+                "bank_name": "BANK STANDARD CHARTERED"
+            },
+            {
+                "bank_id": "198",
+                "bank_name": "BANK BUMI ARTA"
+            },
+            {
+                "bank_id": "199",
+                "bank_name": "BANK BUKOPIN"
+            },
+            {
+                "bank_id": "200",
+                "bank_name": "BANK SYARIAH BUKOPIN"
+            },
+            {
+                "bank_id": "201",
+                "bank_name": "BANK MANDIRI TASPEN"
+            },
+            {
+                "bank_id": "202",
+                "bank_name": "BANK NUSA TENGGARA BARAT"
+            },
+            {
+                "bank_id": "203",
+                "bank_name": "BANK NAGARI"
+            },
+            {
+                "bank_id": "204",
+                "bank_name": "BANK RAYA INDONESIA"
+            },
+            {
+                "bank_id": "206",
+                "bank_name": "DUTAMONEY"
+            },
+            {
+                "bank_id": "207",
+                "bank_name": "E2PAY"
+            },
+            {
+                "bank_id": "208",
+                "bank_name": "FELLO"
+            },
+            {
+                "bank_id": "209",
+                "bank_name": "GOTAGIHAN"
+            },
+            {
+                "bank_id": "210",
+                "bank_name": "GOJEK"
+            },
+            {
+                "bank_id": "211",
+                "bank_name": "KASPRO"
+            },
+            {
+                "bank_id": "212",
+                "bank_name": "MOTIONPAY"
+            },
+            {
+                "bank_id": "213",
+                "bank_name": "PAYDIA"
+            },
+            {
+                "bank_id": "214",
+                "bank_name": "TOKOPEDIA"
+            },
+            {
+                "bank_id": "215",
+                "bank_name": "BPR KS"
             }
         ],
         "wallets": [
