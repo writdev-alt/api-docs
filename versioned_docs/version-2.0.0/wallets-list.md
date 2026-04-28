@@ -31,8 +31,10 @@ Use this data to power account dashboards, balance checks, and transaction pre-v
 
 | Header | Value | Required | Description |
 |--------|-------|:--------:|-------------|
-| `Authorization` | `Bearer {token}` | ✅ | Access token from login endpoint |
-| `Accept` | `application/json` | ✅ | Expected response format |
+| `Content-Type` | `application/json` | ✅ | Request payload format. |
+| `Accept` | `application/json` | ✅ | Expected response format. |
+| `X-API-KEY` | `{apiKey}` | ✅ | API key credential. |
+| `Authorization` | `Bearer {token}` | ✅ | Bearer access token. |
 
 ---
 
@@ -43,7 +45,7 @@ This endpoint does not require a request body.
 ## Example cURL Request
 
 ```bash
-curl --location 'http://localhost:8080/api/v2/wallets' \
+curl --location '/api/v2/wallets' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer token'
 ```

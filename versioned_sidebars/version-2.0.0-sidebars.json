@@ -1,9 +1,14 @@
 {
   "tutorialSidebar": [
     "intro",
-    "auth-login",
+    "auth-login-v2",
     "banks-list-v2",
     "wallets-list-v2",
+    "withdraw-account-v2",
+    "withdraw",
+    "qris-create-v2",
+    "virtual-account-create",
+    "webhooks",
     "response-code-v2"
   ]
 }

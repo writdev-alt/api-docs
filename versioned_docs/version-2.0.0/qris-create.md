@@ -1,0 +1,190 @@
+---
+id: qris-create-v2
+slug: /qris-create
+title: Create QRIS
+sidebar_position: 7
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Generate a dynamic QRIS payment transaction for Indonesia domestic payments.
+Use this endpoint when your system needs to create a payable QR code for checkout or bill settlement workflows.
+
+**Endpoint:**  
+`POST api/v2/qris/create`
+
+## Overview
+
+This endpoint creates a QRIS payment request and returns transaction data that can be used to display a QR code to customers.
+
+Typical flow:
+1. Generate a unique `trxReference` in your backend.
+2. Submit transaction amount and fee policy (`CUSTOMER` or `MERCHANT`).
+3. Render the returned QRIS payload/image in your checkout UI.
+4. Monitor payment status asynchronously until settlement is final.
+
+## Endpoint Details
+
+| Item | Value |
+|---|---|
+| HTTP Method | `POST` |
+| Endpoint | `api/v2/qris/create` |
+| Auth Required | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
+| Content Type | `application/json` |
+| Currency | `IDR` |
+
+## Request Specification
+
+### Request Headers
+
+| Header | Value | Required | Description |
+|---|---|---|---|
+| `Content-Type` | `application/json` | ✅ | Request payload format. |
+| `Accept` | `application/json` | ✅ | Expected response format. |
+| `X-API-KEY` | `{apiKey}` | ✅ | API key credential. |
+| `Authorization` | `Bearer {token}` | ✅ | Bearer access token. |
+
+### Request Body
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `amount` | number | ✅ | Payment amount in IDR (integer, greater than 0). |
+| `trxReference` | string | ✅ | Unique merchant reference for idempotency and reconciliation. |
+| `feeType` | string | ✅ | Fee assignment policy: `CUSTOMER` or `MERCHANT`. |
+
+### Validation Rules (Recommended)
+
+| Field | Rule |
+|---|---|
+| `amount` | Required, integer, minimum `1` |
+| `trxReference` | Required, unique per transaction |
+| `feeType` | Required, allowed values: `CUSTOMER`, `MERCHANT` |
+
+### Code Example
+
+<Tabs groupId="qris-create-code" defaultValue="curl" values={[
+  { label: 'cURL', value: 'curl' },
+]}>
+
+<TabItem value="curl">
+
+```bash
+curl --location 'http://sandbox.ilonapay.com/api/v2/qris/create' \
+  --header 'X-API-KEY: {apiKey}' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer {token}' \
+  --data '{
+    "amount": 1000,
+    "trxReference": "d73c0f1a-993f-4968-815c-0daf9510ab23",
+    "feeType": "CUSTOMER"
+  }'
+```
+
+</TabItem>
+
+</Tabs>
+
+## Response Specification
+
+### Responses
+
+<Tabs
+  defaultValue="success"
+  values={[
+    {label: 'Success — 201 Created', value: 'success'},
+    {label: 'Validation Error — 422', value: 'validation'},
+    {label: 'Unauthorized — 401', value: 'unauthorized'},
+  ]}
+>
+
+<TabItem value="success">
+
+```json
+{
+  "code": 2013001,
+  "message": "success retrieve data QRIS",
+  "data": {
+    "trxId": "TRXQRIS3991PZZH3A7J5C6YE8",
+    "trxReference": "897b0605-b9fa-49e2-bae6-eaadf35f2da8",
+    "merchantId": "3",
+    "amount": 100900,
+    "netAmount": 100000,
+    "fee": 900,
+    "feeType": "CUSTOMER",
+    "currency": "IDR",
+    "status": "pending",
+    "paymentChannel": "QRIS",
+    "expiredAt": "2026-04-28T18:00:17.192335563Z",
+    "payload": "00020101021226670016COM.....",
+    "imageUrl": "http://localhost:8080/qris/view/TRXQRIS3991PZZH3A7J5C6YE8",
+    "imageBase64": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEX.....",
+    "provider": {
+      "name": "Nobu",
+      "referenceId": "TRXQRIS3991PZZH3A7J5C6YE8",
+      "status": "success"
+    },
+    "merchantInfo": {
+      "MerchantID": "936005031260000068",
+      "MerchantName": "Merchant Name",
+      "NMID": "ID1026497176242",
+      "City": "TANGERANG"
+    }
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="validation">
+
+```json
+{
+  "code": 4220211,
+  "message": "The given data was invalid.",
+  "errors": {
+    "amount": [
+      "amount must be between Rp 100.000 and Rp 5.000.000"
+    ]
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="unauthorized">
+
+```json
+{
+  "success": false,
+  "code": "4010001",
+  "message": "Unauthenticated"
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `success` | boolean | Indicates whether request execution succeeded |
+| `code` | string | Composite response code (`HTTP + service + case`) |
+| `message` | string | Human-readable status message |
+| `data.trxId` | string | System-generated QRIS transaction identifier |
+| `data.trxReference` | string | Merchant reference submitted in request |
+| `data.amount` | number | Accepted QRIS amount |
+| `data.feeType` | string | Applied fee assignment policy |
+| `data.status` | string | Processing state (for example `pending`) |
+| `data.expiredAt` | string | QRIS payment expiry timestamp (ISO 8601) |
+| `errors` | object | Present on validation failures with field-level messages |
+
+## Security and Reliability Notes
+
+- Generate truly unique `trxReference` values to prevent duplicate transactions.
+- Keep token and API key in secure server-side secret storage.
+- Use HTTPS for non-local environments.
+- Set an internal timeout for pending QRIS and handle expiration gracefully.

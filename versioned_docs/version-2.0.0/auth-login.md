@@ -1,5 +1,5 @@
 ---
-id: auth-login
+id: auth-login-v2
 slug: /auth/login-v2
 title: Login
 sidebar_position: 2
@@ -160,7 +160,7 @@ Authorization: Bearer <accessToken>
 ## 7) Example cURL Request
 
 ```bash
-curl --location 'http://localhost:8080/api/v2/auth/login' \
+curl --location '/api/v2/auth/login' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --data-raw '{
