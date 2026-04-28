@@ -8,6 +8,7 @@
     "withdraw",
     "qris-create-v2",
     "virtual-account-create",
+    "check-transaction-v2",
     "webhooks",
     "response-code-v2"
   ]
