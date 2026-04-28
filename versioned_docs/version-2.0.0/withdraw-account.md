@@ -222,6 +222,6 @@ else:
 
 > **⚠️ Important**  
 > - In production, the bank account is verified with the payment gateway before creation.  
-> - Use a valid `bankCode` from the [Get Banks and Wallets Lists](./banks-wallets) endpoint.  
+> - Use a valid `bankCode` from the [Banks List](./banks/list-v2) endpoint.  
 
 
