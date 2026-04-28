@@ -1,0 +1,9 @@
+{
+  "tutorialSidebar": [
+    "intro",
+    "auth-login",
+    "banks-list-v2",
+    "wallets-list-v2",
+    "response-code-v2"
+  ]
+}
