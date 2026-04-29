@@ -34,7 +34,7 @@ Typical flow:
 | Content Type | `application/json` |
 | Currency | `IDR` |
 
-## Request Specification
+## Request
 
 ### Request Headers
 
@@ -86,7 +86,7 @@ curl --location 'http://sandbox.ilonapay.com/api/v2/qris/create' \
 
 </Tabs>
 
-## Response Specification
+## Response
 
 ### Responses
 

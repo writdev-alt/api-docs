@@ -2,6 +2,11 @@
   "tutorialSidebar": [
     "intro",
     "auth-login-v2",
+    "base-url-environment-v2",
+    "headers-v2",
+    "rate-limits-v2",
+    "error-handling-v2",
+    "api-endpoints-v2",
     "banks-list-v2",
     "wallets-list-v2",
     "withdraw-account-v2",
@@ -10,6 +15,9 @@
     "virtual-account-create",
     "check-transaction-v2",
     "webhooks",
-    "response-code-v2"
+    "response-code-v2",
+    "sdk-code-examples-v2",
+    "faq-v2",
+    "changelog-v2"
   ]
 }

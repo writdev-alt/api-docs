@@ -36,7 +36,7 @@ Typical flow:
 | Content Type | `application/json` |
 | Idempotency Hint | Reuse-safe reference via unique `trxReference` |
 
-## Request Specification
+## Request
 
 ### Request Headers
 
@@ -215,7 +215,7 @@ else:
 
 </Tabs>
 
-## Response Specification
+## Response
 
 ### Responses
 

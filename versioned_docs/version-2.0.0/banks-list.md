@@ -36,7 +36,7 @@ This helps prevent invalid routing codes and keeps client-side bank selectors sy
 
 ---
 
-## Request Specification
+## Request
 
 This endpoint does not require request body parameters.
 
@@ -49,7 +49,7 @@ curl --location 'http://localhost:8080/api/v2/banks' \
 --header 'Authorization: Bearer token'
 ```
 
-## Response Specification
+## Response
 
 ### Success Response (`200 OK`)
 

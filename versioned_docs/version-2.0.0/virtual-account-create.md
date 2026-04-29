@@ -33,7 +33,7 @@ Typical flow:
 | Content Type | `application/json` |
 | Currency | `IDR` |
 
-## Request Specification
+## Request
 
 ### Request Headers
 
@@ -82,7 +82,7 @@ curl --location 'http://localhost:8080/virtual-account/create' \
 
 </Tabs>
 
-## Response Specification
+## Response
 
 ### Responses
 

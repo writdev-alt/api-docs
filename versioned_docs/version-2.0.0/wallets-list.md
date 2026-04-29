@@ -38,7 +38,7 @@ Use this data to power account dashboards, balance checks, and transaction pre-v
 
 ---
 
-## Request Specification
+## Request
 
 This endpoint does not require a request body.
 
@@ -50,7 +50,7 @@ curl --location '/api/v2/wallets' \
 --header 'Authorization: Bearer token'
 ```
 
-## Response Specification
+## Response
 
 ### Success Response (`200 OK`)
 
