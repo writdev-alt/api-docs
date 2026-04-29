@@ -52,24 +52,26 @@ Typical flow:
 | Parameter             | Type   | Required | Description                                                                                    |
 |-----------------------|--------|----------|------------------------------------------------------------------------------------------------|
 | `trxReference`             | string | ✅       | Unique merchant-side reference for idempotency and tracking |
-| `bankCode`             | string | ✅       | Bank identifier/code from bank list endpoint |
+| `bankCode`             | string | ✅       | Bank identifier/code (refer to [Banks List](./banks/list-v2)) |
 | `accountHolderName` | string | ✅       | Beneficiary full name |
 | `accountNumber`      | string | ✅       | Destination account number |
 | `amount`              | string | ✅       | Withdrawal amount as numeric string (e.g. `"4000000"`) |
 | `paymentMethod`      | string | ✅       | Method code (`1` bank transfer, `2` VA, `3` e-wallet) |
-| `description`         | string | ✅       | Transaction description/reference note |
+| `description`         | string | ❌       | Optional transaction description/reference note |
+| `walletReference`     | string | ❌       | Optional wallet/e-wallet reference identifier |
 
 ### Validation Rules (Recommended)
 
 | Field | Rule |
 |------|------|
 | `trxReference` | Required, unique per merchant transaction |
-| `bankCode` | Required, must exist in active bank list |
+| `bankCode` | Required, must exist in [Banks List](./banks/list-v2) |
 | `accountHolderName` | Required, non-empty, normalized text |
 | `accountNumber` | Required, numeric/alphanumeric as per channel rule |
 | `amount` | Required, numeric string, greater than zero |
 | `paymentMethod` | Required, allowed values: `1`, `2`, `3` |
-| `description` | Required, non-empty, within max length policy |
+| `description` | Optional, if provided should be non-empty and within max length policy |
+| `walletReference` | Optional, include when reconciliation with wallet reference is needed |
 
 ### Code Examples
 
@@ -97,7 +99,8 @@ curl -X POST "/api/v2/withdraw" \
     "accountNumber": "1040000008446",
     "amount": "4000000",
     "paymentMethod": "1",
-    "description": "domestic transfer bni 0315747263 009 v2"
+    "description": "domestic transfer bni 0315747263 009 v2",
+    "walletReference": "WALLET-REF-001"
   }'
 ```
 
@@ -122,6 +125,7 @@ $withdrawalData = [
     'amount' => '4000000',
     'paymentMethod' => '1',
     'description' => 'domestic transfer bni 0315747263 009 v2',
+    'walletReference' => 'WALLET-REF-001', // Optional
 ];
 
 $response = Http::timeout(60)->withHeaders([
@@ -152,6 +156,7 @@ const withdrawalData = {
     amount: '4000000',
     paymentMethod: '1',
     description: 'domestic transfer bni 0315747263 009 v2',
+    walletReference: 'WALLET-REF-001', // Optional
 };
 
 axios.post(`${baseUrl}/withdraw`, withdrawalData, {
@@ -188,6 +193,7 @@ withdrawalData = {
     'amount': '4000000',
     'paymentMethod': '1',
     'description': 'domestic transfer bni 0315747263 009 v2',
+    'walletReference': 'WALLET-REF-001',  # Optional
 }
 
 headers = {
