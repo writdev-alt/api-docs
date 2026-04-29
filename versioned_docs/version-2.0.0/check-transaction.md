@@ -240,7 +240,7 @@ curl --location 'https://sandbox.ilonapay.com/api/v2/transactions/TRX-WD-2026042
 
 Common status transitions:
 - **Payin:** `pending` -> `paid` or `expired`/`failed`
-- **Payout:** `pending` -> `completed` or `failed`
+- **Payout:** `pending` -> `completed` or `failed` -> `refund` (if failed, amount should be refunded to source balance)
 
 ## Operational Notes
 
