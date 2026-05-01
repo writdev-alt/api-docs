@@ -24,3 +24,4 @@ sidebar_position: 15
   - Create Withdrawal
   - Create Withdrawal Account
 - Improved sidebar organization and navigation flow.
+- Documented **Refresh Token** (`POST /api/v2/auth/refresh`).

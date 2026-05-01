@@ -20,7 +20,7 @@ This endpoint creates a QRIS payment request and returns transaction data that c
 
 Typical flow:
 1. Generate a unique `trxReference` in your backend.
-2. Submit transaction amount and fee policy (`CUSTOMER` or `MERCHANT`).
+2. Submit transaction amount and fee policy (`CUSTOMER` or `SELLER`).
 3. Render the returned QRIS payload/image in your checkout UI.
 4. Monitor payment status asynchronously until settlement is final.
 
@@ -51,7 +51,7 @@ Typical flow:
 |---|---|---|---|
 | `amount` | number | ✅ | Payment amount in IDR (integer, greater than 0). |
 | `trxReference` | string | ✅ | Unique merchant reference for idempotency and reconciliation. |
-| `feeType` | string | ✅ | Fee assignment policy: `CUSTOMER` or `MERCHANT`. |
+| `feeType` | string | ✅ | Fee assignment policy: `CUSTOMER` or `SELLER`. |
 
 ### Validation Rules (Recommended)
 
@@ -59,7 +59,7 @@ Typical flow:
 |---|---|
 | `amount` | Required, integer, minimum `1` |
 | `trxReference` | Required, unique per transaction |
-| `feeType` | Required, allowed values: `CUSTOMER`, `MERCHANT` |
+| `feeType` | Required, allowed values: `CUSTOMER`, `SELLER` |
 
 ### Code Example
 

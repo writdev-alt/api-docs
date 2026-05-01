@@ -218,7 +218,7 @@ curl --location 'https://sandbox.ilonapay.com/api/v2/transactions/TRX-WD-2026042
 | `data.amount` | number | Gross transaction amount |
 | `data.netAmount` | number | Net amount after fee calculation |
 | `data.fee` | number | Applied transaction fee |
-| `data.feeType` | string | Fee assignment policy (`CUSTOMER` or `MERCHANT`) |
+| `data.feeType` | string | Fee assignment policy (`CUSTOMER` or `SELLER`) |
 | `data.currency` | string | Currency code (`IDR`) |
 | `data.paymentChannel` | string | Channel used for payment (for example `QRIS`, `BANK_TRANSFER`) |
 | `data.status` | string | Current transaction status |

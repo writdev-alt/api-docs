@@ -23,7 +23,7 @@ This endpoint is stateless and designed for horizontal scaling in distributed ba
 2. Server validates request payload and credentials.
 3. On success, server returns `accessToken` and `refreshToken`.
 4. Client sends `Authorization: Bearer <accessToken>` on protected endpoints.
-5. When token expires, client requests a new access token using refresh token flow (if enabled).
+5. When token expires, client requests a new access token using the [Refresh Token](./refresh-v2) endpoint (when enabled).
 
 ## 2) Endpoint Details
 

@@ -7,7 +7,7 @@ sidebar_position: 2
 
 ## Refresh Token
 
-Exchange a valid refresh token for a new access token (and optionally a rotated refresh token). Use this when the access token from [Login](./auth/login-v2) has expired or is about to expire.
+Exchange a valid refresh token for a new access token (and optionally a rotated refresh token). Use this when the access token from [Login](./login-v2) has expired or is about to expire.
 
 **Endpoint:**  
 `POST /api/v2/auth/refresh`
@@ -66,7 +66,7 @@ If validation fails, the API returns `422 Validation Error` with field-level det
 
 ## 4) Response
 
-Response shape matches [Login](./auth/login-v2): `code`, `message`, and `data` with `accessToken`, `tokenType`, `expiresIn`, and `refreshToken`.
+Response shape matches [Login](./login-v2): `code`, `message`, and `data` with `accessToken`, `tokenType`, `expiresIn`, and `refreshToken`.
 
 ### Success (`200 OK`)
 
@@ -168,4 +168,4 @@ In sandbox or production, the path is typically `POST /api/v2/auth/refresh` on y
 
 - Treat `expiresIn` the same way as login: refresh before expiry to avoid `401` on protected APIs.
 - Store the new `refreshToken` securely when the API rotates refresh tokens on each call.
-- On repeated `401` from refresh, require the user to log in again via [Login](./auth/login-v2).
+- On repeated `401` from refresh, require the user to log in again via [Login](./login-v2).

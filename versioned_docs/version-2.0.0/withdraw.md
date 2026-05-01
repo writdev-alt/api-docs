@@ -115,7 +115,6 @@ use Illuminate\Support\Facades\Http;
 
 $baseUrl = '/api/v2';
 $token = 'yourBearerToken';
-$merchantKey = 'merchantKey';
 $apiKey = 'apiKey';
 $withdrawalData = [
     'trxReference' => '12323',
@@ -146,7 +145,6 @@ const axios = require('axios');
 
 const baseUrl = '/api/v2';
 const token = 'yourBearerToken';
-const merchantKey = 'merchantKey';
 const apiKey = 'apiKey';
 const withdrawalData = {
     trxReference: '12323',
@@ -183,7 +181,6 @@ import requests
 
 baseUrl = '/api/v2'
 token = 'yourBearerToken'
-merchantKey = 'merchantKey'
 apiKey = 'apiKey'
 withdrawalData = {
     'trxReference': '12323',
@@ -299,6 +296,22 @@ else:
 | Bank Card      | `1`  | Bank card/account transfer     |
 | VA Number      | `2`  | Virtual Account number         |
 | E-Wallet       | `3`  | E-Wallet transfer              |
+
+
+
+### Available withdraw Status
+
+| Status Code               | Category      | Status Description                      |
+|---------------------------|---------------|----------------------------------------------------------|
+| `pending`                 | `withdraw`    | Transaction awaiting payment confirmation                |
+| `awaiting_fi_process`     |  `withdraw`    | Awaiting processing by the financial institution         |
+| `awaiting_pg_process`     |  `withdraw`    | Queued at the payment gateway for further processing     |
+| `awaiting_user_action`    |  `withdraw`    | Merchant/customer must perform an action to proceed      |
+| `awaiting_admin_approval` |  `withdraw`    | Waiting for manual approval from an administrator        |
+| `completed`               | `withdraw`    | Payment process successfully finalized                   |
+| `failed`                  | `withdraw`    | Payment process terminated due to error                  |
+| `refunded`                |  `withdraw`    | Funds returned to the payer after completion             |
+| `expired`                 | `withdraw`    | Payment session exceeded time limit and can’t continue   |
 
 ## Security and Reliability Notes
 
