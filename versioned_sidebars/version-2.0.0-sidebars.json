@@ -2,6 +2,7 @@
   "tutorialSidebar": [
     "intro",
     "auth-login-v2",
+    "auth-refresh-v2",
     "base-url-environment-v2",
     "headers-v2",
     "rate-limits-v2",
