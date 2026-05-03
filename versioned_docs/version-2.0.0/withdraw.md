@@ -98,7 +98,7 @@ curl -X POST "/api/v2/withdraw" \
     "accountHolderName": "RAIDY WIJAYA",
     "accountNumber": "1040000008446",
     "amount": "4000000",
-    "paymentMethod": "1",
+    "paymentMethod": "BANK_TRANSFER",
     "description": "domestic transfer bni 0315747263 009 v2",
     "walletReference": "WALLET-REF-001"
   }'
@@ -293,11 +293,15 @@ else:
 
 | Payment Method | Code | Description                    |
 |----------------|------|--------------------------------|
-| Bank Card      | `1`  | Bank card/account transfer     |
-| VA Number      | `2`  | Virtual Account number         |
-| E-Wallet       | `3`  | E-Wallet transfer              |
+| Bank Transfer      | `BANK_TRANSFER`  | Bank card/account transfer     |
+| VA Number      | `VIRTUAL_ACCOUNT`  | Virtual Account number         |
+| E-Wallet       | `EWALLET`  | E-Wallet transfer              |
 
+## Withdrawal status lifecycle
 
+After a successful create, the withdrawal is usually `pending`, then moves through one or more processing states while the gateway or bank works the payout. It ends in **`completed`** when money has left the platform successfully, or in **`failed`** when the attempt stops; in the failure case the amount is typically reconciled back and the transaction may show as **`refunded`**.
+
+![Withdrawal status lifecycle: pending through processing to completed, or failed then refunded](/img/withdraw.svg)
 
 ### Available withdraw Status
 

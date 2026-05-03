@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 Retrieve the latest status and transaction details using a transaction ID.
 
 **Endpoint:**  
-`GET /api/v2/transactions/{trxId}`
+`POST /api/v2/transactions`
 
 ## Overview
 
@@ -21,26 +21,27 @@ Use this endpoint to monitor transaction progress after creation for both payin 
 
 Typical flow:
 1. Store returned `trxId` after creating a transaction.
-2. Call this endpoint from backend services for status checks.
+2. Call this endpoint from backend services with a JSON body (`value` + `Type`) for status checks.
 3. Update your order or payout state based on `data.status`.
 
 ## Endpoint Details
 
 | Item | Value |
 |---|---|
-| HTTP Method | `GET` |
-| Endpoint | `/api/v2/transactions/{trxId}` |
+| HTTP Method | `POST` |
+| Endpoint | `/api/v2/transactions` |
 | Auth Required | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
 | Content Type | `application/json` |
 | Supported Flows | Payin and Payout |
 
 ## Request
 
-### Path Parameters
+### Request Body
 
-| Parameter | Type | Required | Description |
+| Field | Type | Required | Description |
 |---|---|---|---|
-| `trxId` | string | ✅ | Unique transaction ID returned by transaction creation endpoints |
+| `value` | string | ✅ | Transaction identifier to look up (for example the `trxId` returned by transaction creation endpoints) |
+| `Type` | string | ✅ | Lookup type. Use `TRX_ID` when `value` is a transaction ID. |
 
 ### Request Headers
 
@@ -64,11 +65,15 @@ Typical flow:
 <TabItem value="payin">
 
 ```bash
-curl --location 'https://sandbox.ilonapay.com/api/v2/transactions/TRX-QRIS3-20260428-X05UTV9DLWAR' \
+curl --location 'https://production.ilonapay.com/api/v2/transactions' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/json' \
   --header 'X-API-KEY: {apiKey}' \
-  --header 'Authorization: Bearer {token}'
+  --header 'Authorization: Bearer {token}' \
+  --data '{
+    "value": "TRXQRIS1JGIWZ0PNNQ38KT2JL",
+    "Type": "TRX_ID"
+}'
 ```
 
 </TabItem>
@@ -76,11 +81,15 @@ curl --location 'https://sandbox.ilonapay.com/api/v2/transactions/TRX-QRIS3-2026
 <TabItem value="payout">
 
 ```bash
-curl --location 'https://sandbox.ilonapay.com/api/v2/transactions/TRX-WD-20260429-8X4K2P1' \
+curl --location 'https://production.ilonapay.com/api/v2/transactions' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/json' \
   --header 'X-API-KEY: {apiKey}' \
-  --header 'Authorization: Bearer {token}'
+  --header 'Authorization: Bearer {token}' \
+  --data '{
+    "value": "TRX-WD-20260429-8X4K2P1",
+    "Type": "TRX_ID"
+}'
 ```
 
 </TabItem>
@@ -166,9 +175,9 @@ curl --location 'https://sandbox.ilonapay.com/api/v2/transactions/TRX-WD-2026042
   "data": {
     "trxId": "TRX-WD-20260429-8X4K2P1",
     "trxReference": "97df4f2f-4e71-42aa-9fdb-845ecf1f0f57",
-    "amount": 250000,
-    "netAmount": 248500,
-    "fee": 1500,
+    "amount": 102000,
+    "netAmount": 100000,
+    "fee": 20000,
     "feeType": "MERCHANT",
     "currency": "IDR",
     "paymentChannel": "BANK_TRANSFER",

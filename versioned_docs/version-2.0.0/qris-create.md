@@ -182,6 +182,22 @@ curl --location 'http://sandbox.ilonapay.com/api/v2/qris/create' \
 | `data.expiredAt` | string | QRIS payment expiry timestamp (ISO 8601) |
 | `errors` | object | Present on validation failures with field-level messages |
 
+## QRIS status lifecycle
+
+After a successful create, `data.status` is usually **`pending`**: the QR is valid until `expiredAt` and the payer has not finished checkout yet. Poll [Check Transaction Status](./transactions/check-status) or consume [webhooks](./webhooks-v2) until the transaction reaches a **terminal** state, then stop polling and finalize your order.
+
+![QRIS status lifecycle: pending through processing to completed, or failed then refunded](/img/qris.svg)
+
+### Common `data.status` values (QRIS)
+
+| Status | Meaning |
+|--------|--------|
+| `pending` | Awaiting customer payment; QR is still valid before `expiredAt`. |
+| `paid` | Payment confirmed (payin success; terminology may vary by integration). |
+| `completed` | Sometimes used as the success terminal alongside or instead of `paid` (for example in notifications). |
+| `expired` | Customer did not pay before `expiredAt`. |
+| `failed` | Payment attempt did not complete successfully. |
+
 ## Security and Reliability Notes
 
 - Generate truly unique `trxReference` values to prevent duplicate transactions.

@@ -157,6 +157,22 @@ curl --location 'http://localhost:8080/virtual-account/create' \
 | `data.expiredAt` | string | Payment expiry timestamp (ISO 8601) |
 | `errors` | object | Field-level validation errors when request is invalid |
 
+## Virtual Account status lifecycle
+
+After a successful create, `data.status` is usually **`pending`**: the payer must transfer to the issued VA before `expiredAt`. Poll [Check Transaction Status](./transactions/check-status) or consume [webhooks](./webhooks-v2) until the transaction reaches a **terminal** state, then stop polling and reconcile your order.
+
+![VA status lifecycle: pending through processing to completed, or failed then refunded](/img/va.svg)
+
+### Common `data.status` values (VA)
+
+| Status | Meaning |
+|--------|--------|
+| `pending` | Awaiting bank transfer to the VA; valid until `expiredAt`. |
+| `paid` | Payment confirmed (payin success; terminology may vary by integration). |
+| `completed` | Sometimes used as the success terminal alongside or instead of `paid` (for example in notifications). |
+| `expired` | No qualifying payment before `expiredAt`. |
+| `failed` | Collection did not complete successfully. |
+
 ## Security and Reliability Notes
 
 - Keep `X-API-KEY` and bearer token in secure server-side storage.
