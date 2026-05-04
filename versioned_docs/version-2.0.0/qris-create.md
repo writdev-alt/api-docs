@@ -70,7 +70,7 @@ Typical flow:
 <TabItem value="curl">
 
 ```bash
-curl --location 'http://sandbox.ilonapay.com/api/v2/qris/create' \
+curl --location '/api/v2/qris/create' \
   --header 'X-API-KEY: {apiKey}' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
@@ -118,7 +118,7 @@ curl --location 'http://sandbox.ilonapay.com/api/v2/qris/create' \
     "paymentChannel": "QRIS",
     "expiredAt": "2026-04-28T18:00:17.192335563Z",
     "payload": "00020101021226670016COM.....",
-    "imageUrl": "http://localhost:8080/qris/view/TRXQRIS3991PZZH3A7J5C6YE8",
+    "imageUrl": "https://sandbox.ilonapay.com/qris/view/TRXQRIS3991PZZH3A7J5C6YE8",
     "imageBase64": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEX.....",
     "provider": {
       "name": "Nobu",

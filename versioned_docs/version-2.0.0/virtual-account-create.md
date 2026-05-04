@@ -67,7 +67,7 @@ Typical flow:
 <TabItem value="curl">
 
 ```bash
-curl --location 'http://localhost:8080/virtual-account/create' \
+curl --location '/virtual-account/create' \
   --header 'X-API-KEY: {apiKey}' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \

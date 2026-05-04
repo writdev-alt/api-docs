@@ -138,7 +138,7 @@ Response shape matches [Login](./login-v2): `code`, `message`, and `data` with `
 ## 5) Example cURL Request
 
 ```bash
-curl --location 'http://sandbox.ilonapay.com/api/v2/auth/refresh' \
+curl --location '/api/v2/auth/refresh' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer {token}' \

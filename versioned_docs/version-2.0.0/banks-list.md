@@ -43,7 +43,7 @@ This endpoint does not require request body parameters.
 ## Example cURL Request
 
 ```bash
-curl --location 'http://localhost:8080/api/v2/banks' \
+curl --location '/api/v2/banks' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer token'
