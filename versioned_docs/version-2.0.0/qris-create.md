@@ -171,16 +171,34 @@ curl --location '/api/v2/qris/create' \
 
 | Field | Type | Description |
 |---|---|---|
-| `success` | boolean | Indicates whether request execution succeeded |
-| `code` | string | Composite response code (`HTTP + service + case`) |
+| `code` | number or string | Service response code (often numeric on success or validation errors; may be a string on some auth errors) |
 | `message` | string | Human-readable status message |
+| `success` | boolean | Optional; may appear on error payloads (for example `false` when unauthenticated) |
+| `data` | object | Present on successful create; contains the QRIS transaction and display fields |
 | `data.trxId` | string | System-generated QRIS transaction identifier |
-| `data.trxReference` | string | Merchant reference submitted in request |
-| `data.amount` | number | Accepted QRIS amount |
-| `data.feeType` | string | Applied fee assignment policy |
-| `data.status` | string | Processing state (for example `pending`) |
-| `data.expiredAt` | string | QRIS payment expiry timestamp (ISO 8601) |
-| `errors` | object | Present on validation failures with field-level messages |
+| `data.trxReference` | string | Merchant reference submitted in the request |
+| `data.merchantId` | string | Merchant identifier on the platform |
+| `data.amount` | number | Gross amount charged (includes customer-paid fee when `feeType` is `CUSTOMER`) |
+| `data.netAmount` | number | Net settlement amount after fees |
+| `data.fee` | number | Applied transaction fee amount |
+| `data.feeType` | string | Fee assignment policy (`CUSTOMER` or `SELLER`) |
+| `data.currency` | string | Currency code (for example `IDR`) |
+| `data.status` | string | Processing state (for example `pending` after create) |
+| `data.paymentChannel` | string | Channel identifier (for example `QRIS`) |
+| `data.expiredAt` | string | QRIS validity end time (ISO 8601) |
+| `data.payload` | string | EMV QR string for rendering or scanning |
+| `data.imageUrl` | string | URL to a hosted QR image for this transaction |
+| `data.imageBase64` | string | Base64-encoded QR image (PNG) |
+| `data.provider` | object | Acquirer/provider metadata for the issued QR |
+| `data.provider.name` | string | Provider display name |
+| `data.provider.referenceId` | string | Provider-side reference (often matches `trxId`) |
+| `data.provider.status` | string | Provider operation outcome for QR issuance |
+| `data.merchantInfo` | object | Merchant identity on the QR payload (field casing as returned by the API) |
+| `data.merchantInfo.MerchantID` | string | Merchant identifier on the QR network |
+| `data.merchantInfo.MerchantName` | string | Merchant display name |
+| `data.merchantInfo.NMID` | string | National Merchant ID |
+| `data.merchantInfo.City` | string | Merchant city |
+| `errors` | object | Present on validation failures; field names map to arrays of error messages |
 
 ## QRIS status lifecycle
 
