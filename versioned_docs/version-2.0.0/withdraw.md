@@ -69,7 +69,7 @@ Typical flow:
 | `accountHolderName` | Required, non-empty, normalized text |
 | `accountNumber` | Required, numeric/alphanumeric as per channel rule |
 | `amount` | Required, numeric string, greater than zero |
-| `paymentMethod` | Required, allowed values: `1`, `2`, `3` |
+| `paymentMethod` | Required, allowed values: `EWALLET`, `VIRTUAL_ACCOUNT`, `BANK_TRASFER` |
 | `description` | Optional, if provided should be non-empty and within max length policy |
 | `walletReference` | Optional, include when reconciliation with wallet reference is needed |
 
