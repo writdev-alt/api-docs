@@ -79,6 +79,22 @@ const config: Config = {
   ],
 
   plugins: [
+    // Langium (Mermaid grammar) pulls vscode-languageserver-types; its UMD entry triggers a
+    // harmless webpack "Critical dependency" warning about dynamic require.
+    function ignoreVscodeLanguageserverWebpackWarnings() {
+      return {
+        name: 'ignore-vscode-languageserver-webpack-warnings',
+        configureWebpack() {
+          return {
+            ignoreWarnings: [
+              {
+                module: /vscode-languageserver-types[\\/]/,
+              },
+            ],
+          };
+        },
+      };
+    },
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
