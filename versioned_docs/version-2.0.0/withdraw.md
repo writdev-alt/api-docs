@@ -55,8 +55,8 @@ Typical flow:
 | `bankCode`             | string | ✅       | Bank identifier/code (refer to [Banks List](./banks/list-v2)) |
 | `accountHolderName` | string | ✅       | Beneficiary full name |
 | `accountNumber`      | string | ✅       | Destination account number |
-| `amount`              | string | ✅       | Withdrawal amount as numeric string (e.g. `"4000000"`) |
-| `paymentMethod`      | string | ✅       | Method code (`1` bank transfer, `2` VA, `3` e-wallet) |
+| `amount`              | number | ✅       | Withdrawal amount as numeric (e.g. `4000000`) |
+| `paymentMethod`      | string | ✅       | Method code `EWALLET`, `VIRTUAL_ACCOUNT`, `BANK_TRASFER`  |
 | `description`         | string | ❌       | Optional transaction description/reference note |
 | `walletReference`     | string | ❌       | Optional wallet/e-wallet reference identifier |
 
@@ -68,7 +68,7 @@ Typical flow:
 | `bankCode` | Required, must exist in [Banks List](./banks/list-v2) |
 | `accountHolderName` | Required, non-empty, normalized text |
 | `accountNumber` | Required, numeric/alphanumeric as per channel rule |
-| `amount` | Required, numeric string, greater than zero |
+| `amount` | Required, numeric , greater than zero |
 | `paymentMethod` | Required, allowed values: `EWALLET`, `VIRTUAL_ACCOUNT`, `BANK_TRASFER` |
 | `description` | Optional, if provided should be non-empty and within max length policy |
 | `walletReference` | Optional, include when reconciliation with wallet reference is needed |
@@ -121,7 +121,7 @@ $withdrawalData = [
     'bankCode' => '2',
     'accountHolderName' => 'RAIDY WIJAYA',
     'accountNumber' => '1040000008446',
-    'amount' => '4000000',
+    'amount' => 4000000,
     'paymentMethod' => '1',
     'description' => 'domestic transfer bni 0315747263 009 v2',
     'walletReference' => 'WALLET-REF-001', // Optional
@@ -151,7 +151,7 @@ const withdrawalData = {
     bankCode: '2',
     accountHolderName: 'RAIDY WIJAYA',
     accountNumber: '1040000008446',
-    amount: '4000000',
+    amount: 4000000,
     paymentMethod: '1',
     description: 'domestic transfer bni 0315747263 009 v2',
     walletReference: 'WALLET-REF-001', // Optional
@@ -187,7 +187,7 @@ withdrawalData = {
     'bankCode': '2',
     'accountHolderName': 'RAIDY WIJAYA',
     'accountNumber': '1040000008446',
-    'amount': '4000000',
+    'amount': 4000000,
     'paymentMethod': '1',
     'description': 'domestic transfer bni 0315747263 009 v2',
     'walletReference': 'WALLET-REF-001',  # Optional
@@ -229,14 +229,26 @@ else:
 
 ```json
 {
-  "code": "2010301",
-  "message": "Withdrawal has been created.",
-  "data": {
-    "trxId": "TRX-20250910-12345",
-    "trxReference": "12323",
-    "amount": "4000000",
-    "status": "pending"
-  }
+    "code": 2000005,
+    "message": "success",
+    "data": {
+        "trxId": "TRXWITH3UW664W52Y5DF9BDKE",
+        "trxReference": "a91d385c-b11f-4ac4-b1d2-0f6e04d66e35",
+        "trxType": "withdraw",
+        "provider": "PAYLABS",
+        "walletReference": "798055915",
+        "amount": 10000,
+        "netAmount": 10000,
+        "fee": 0,
+        "feeType": "SELLER",
+        "currency": "IDR",
+        "paymentChannel": "EWALLET",
+        "status": "completed",
+        "bankCode": "165",
+        "accountNumber": "628123456789",
+        "accountHolderName": "Tria",
+        "processedAt": "2026-05-05T02:54:24.225194456Z"
+    }
 }
 ```
 
@@ -246,8 +258,7 @@ else:
 
 ```json
 {
-  "success": false,
-  "code": "4220601",
+  "code": 4220601,
   "message": "Validation failed",
   "errors": {
     "accountNumber": [
@@ -266,8 +277,7 @@ else:
 
 ```json
 {
-  "success": false,
-  "code": "4040003",
+  "code": 4040003,
   "message": "Bank not found"
 }
 ```
@@ -280,14 +290,26 @@ else:
 
 | Field | Type | Description |
 |------|------|-------------|
-| `success` | boolean | Indicates whether request execution succeeded |
-| `code` | string | Composite response code (`HTTP + service + case`) |
+| `code` | number | Service response code |
 | `message` | string | Human-readable status message |
+| `data` | object | Present on success; withdrawal transaction payload |
 | `data.trxId` | string | System-generated withdrawal transaction identifier |
-| `data.trxReference` | string | Merchant reference submitted in request |
-| `data.amount` | string | Accepted withdrawal amount |
-| `data.status` | string | Initial processing state (for example `pending`) |
-| `errors` | object | Present on validation failures with field-level messages |
+| `data.trxReference` | string | Merchant reference submitted in the request |
+| `data.trxType` | string | Transaction type (for example `withdraw`) |
+| `data.provider` | string | Processing partner or rail identifier |
+| `data.walletReference` | string | Wallet reference when applicable (may be omitted for some channels) |
+| `data.amount` | number | Withdrawal amount |
+| `data.netAmount` | number | Net amount after fees |
+| `data.fee` | number | Applied withdrawal fee |
+| `data.feeType` | string | Fee assignment policy (for example `SELLER` or `CUSTOMER`) |
+| `data.currency` | string | Currency code (for example `IDR`) |
+| `data.paymentChannel` | string | Payout channel (for example `EWALLET`, `BANK_TRANSFER`, `VIRTUAL_ACCOUNT`) |
+| `data.status` | string | Processing state (for example `pending` or `completed`) |
+| `data.bankCode` | string | Destination bank or institution code when applicable |
+| `data.accountNumber` | string | Destination account or wallet identifier when applicable |
+| `data.accountHolderName` | string | Beneficiary name when applicable |
+| `data.processedAt` | string | Timestamp when the payout reached a processed state (ISO 8601), if returned |
+| `errors` | object | Present on validation failures; field names map to arrays of error messages |
 
 ## Payment Method Codes
 

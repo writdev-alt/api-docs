@@ -14,7 +14,7 @@
     "withdraw",
     "qris-create-v2",
     "virtual-account-create",
-    "set-status-v2",
+    // "set-status-v2",
     "check-transaction-v2",
     "webhooks",
     "response-code-v2",
