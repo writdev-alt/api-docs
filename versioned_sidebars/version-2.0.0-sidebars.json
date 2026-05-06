@@ -1,24 +1,53 @@
 {
   "tutorialSidebar": [
     "intro",
-    "auth-login-v2",
-    "auth-refresh-v2",
-    "base-url-environment-v2",
-    "headers-v2",
-    "rate-limits-v2",
-    "error-handling-v2",
-    "api-endpoints-v2",
-    "banks-list-v2",
-    "wallets-list-v2",
-    "withdraw-account-v2",
-    "withdraw",
-    "qris-create-v2",
-    "virtual-account-create",
-    "check-transaction-v2",
-    "webhooks",
-    "response-code-v2",
-    "sdk-code-examples-v2",
-    "faq-v2",
-    "changelog-v2"
+    {
+      "type": "category",
+      "label": "Core concepts",
+      "collapsed": false,
+      "items": [
+        "base-url-environment-v2",
+        "headers-v2",
+        "rate-limits-v2",
+        "error-handling-v2",
+        "api-endpoints-v2"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Authentication",
+      "collapsed": false,
+      "items": ["auth-login-v2", "auth-refresh-v2"]
+    },
+    {
+      "type": "category",
+      "label": "Payout",
+      "items": ["withdraw"]
+    },
+    {
+      "type": "category",
+      "label": "Pay-in",
+      "items": ["qris-create-v2", "virtual-account-create"]
+    },
+    {
+      "type": "category",
+      "label": "Transaction status",
+      "items": ["check-transaction-v2", "webhooks"]
+    },
+    {
+      "type": "category",
+      "label": "Reference data",
+      "items": ["banks-list-v2", "wallets-list-v2"]
+    },
+    {
+      "type": "category",
+      "label": "Resources",
+      "items": [
+        "response-code-v2",
+        "sdk-code-examples-v2",
+        "faq-v2",
+        "changelog-v2"
+      ]
+    }
   ]
 }

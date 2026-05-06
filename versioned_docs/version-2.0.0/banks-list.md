@@ -23,7 +23,7 @@ This helps prevent invalid routing codes and keeps client-side bank selectors sy
 |------|-------|
 | HTTP Method | `GET` |
 | Endpoint | `/api/v2/banks` |
-| Auth Required | Yes (`Bearer` token) |
+| Auth Required | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
 | Content Type | `application/json` |
 
 ### Request Headers
@@ -33,6 +33,7 @@ This helps prevent invalid routing codes and keeps client-side bank selectors sy
 | `Accept` | `application/json` | ✅ | Expected response format |
 | `Content-Type` | `application/json` | ✅ | Request content type |
 | `Authorization` | `Bearer {token}` | ✅ | Access token from login endpoint |
+| `X-API-KEY` | `{apiKey}` | ✅ | API key credential. |
 
 ---
 
@@ -46,6 +47,7 @@ This endpoint does not require request body parameters.
 curl --location '/api/v2/banks' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
+--header 'X-API-KEY: {apiKey}' \
 --header 'Authorization: Bearer token'
 ```
 

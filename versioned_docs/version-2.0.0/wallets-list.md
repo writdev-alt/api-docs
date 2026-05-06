@@ -24,7 +24,7 @@ Use this data to power account dashboards, balance checks, and transaction pre-v
 |------|-------|
 | HTTP Method | `GET` |
 | Endpoint | `/api/v2/wallets` |
-| Auth Required | Yes (`Bearer` token) |
+| Auth Required | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
 | Content Type | `application/json` |
 
 ### Request Headers
@@ -47,6 +47,7 @@ This endpoint does not require a request body.
 ```bash
 curl --location '/api/v2/wallets' \
 --header 'Accept: application/json' \
+--header 'X-API-KEY: {apiKey}' \
 --header 'Authorization: Bearer token'
 ```
 

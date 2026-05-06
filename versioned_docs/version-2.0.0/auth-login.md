@@ -61,8 +61,8 @@ This endpoint is stateless and designed for horizontal scaling in distributed ba
 
 | Field | Rule | Example |
 |------|------|---------|
-| `email` | Required, valid email format, trimmed | `merchant@wrpay.co` |
-| `password` | Required, non-empty string | `rahasia` |
+| `email` | Required, valid email format, trimmed | `user@example.com` |
+| `password` | Required, non-empty string | `password` |
 
 If validation fails, API returns `422 Validation Error` with field-level details.
 
