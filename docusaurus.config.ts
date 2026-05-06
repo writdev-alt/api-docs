@@ -9,9 +9,9 @@ const config: Config = {
   tagline: 'IlonaPay API Documentation',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  // Future flags — requires Docusaurus 3.10+ (see validation in configValidation.js)
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
   // Set the production url of your site here
@@ -23,7 +23,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'ilonapay', // Usually your GitHub org/user name.
+  organizationName: 'writdev-alt', // Usually your GitHub org/user name.
   projectName: 'api-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
