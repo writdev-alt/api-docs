@@ -56,7 +56,7 @@ Typical flow:
 | `accountHolderName` | string | ✅       | Beneficiary full name |
 | `accountNumber`      | string | ✅       | Destination account number |
 | `amount`              | number | ✅       | Withdrawal amount as numeric (e.g. `4000000`) |
-| `paymentMethod`      | string | ✅       | Method code `EWALLET`, `VIRTUAL_ACCOUNT`, `BANK_TRASFER`  |
+| `paymentMethod`      | string | ✅       | Method code `EWALLET`, `VIRTUAL_ACCOUNT`, `BANK_TRANSFER`  |
 | `description`         | string | ❌       | Optional transaction description/reference note |
 | `walletReference`     | string | ❌       | Optional wallet/e-wallet reference identifier |
 
@@ -69,7 +69,7 @@ Typical flow:
 | `accountHolderName` | Required, non-empty, normalized text |
 | `accountNumber` | Required, numeric/alphanumeric as per channel rule |
 | `amount` | Required, numeric , greater than zero |
-| `paymentMethod` | Required, allowed values: `EWALLET`, `VIRTUAL_ACCOUNT`, `BANK_TRASFER` |
+| `paymentMethod` | Required, allowed values: `EWALLET`, `VIRTUAL_ACCOUNT`, `BANK_TRANSFER` |
 | `description` | Optional, if provided should be non-empty and within max length policy |
 | `walletReference` | Optional, include when reconciliation with wallet reference is needed |
 
