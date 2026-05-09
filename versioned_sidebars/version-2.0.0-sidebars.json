@@ -35,7 +35,13 @@
       "type": "category",
       "label": "Transaction status",
       "collapsed": false,
-      "items": ["check-transaction-v2", "webhooks", "set-status-v2"]
+      "items": ["check-transaction-v2", "webhooks"]
+    },
+    {
+      "type": "category",
+      "label": "Sandbox",
+      "collapsed": false,
+      "items": ["set-status-v2"]
     },
     {
       "type": "category",

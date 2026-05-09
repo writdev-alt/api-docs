@@ -1,24 +1,103 @@
 ---
 id: set-status-v2
 slug: /set-status-v2
-title: Payment Status Management
-description: Sandbox status simulation page for testing payment and withdrawal status transitions.
+title: Set transaction status (sandbox)
+description: Sandbox-only API to simulate transaction status transitions for testing. Production is not supported.
 sidebar_position: 10
 ---
 
-## Payment Status Management
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-:::warning Sandbox Only
-This feature is available only in sandbox/testing environments.
+## Overview
+
+Use this flow in **sandbox only** to force or simulate a transaction status (for example moving a test QRIS transaction to `completed`) without waiting for real bank or network settlement.
+
+:::warning Sandbox only
+The **Set transaction status** API (`POST /api/v2/transaction-set-status`) is available **only** on the sandbox base URL. It is **not** exposed on production. Do not call this endpoint in live environments.
 :::
 
-**Access the payment status management interface** via this [endpoint](https://sandbox.ilonapay.com/payment/set-status).
+## Set transaction status (API)
 
-![Payment Status Management](/img/set-status-payment.png)
+### Endpoint
 
-### Available payment statuses
+| Item | Value (sandbox) |
+|---|---|
+| HTTP method | `POST` |
+| URL | `https://sandbox.ilonapay.com/api/v2/transaction-set-status` |
+| Auth | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
 
-Statuses below can appear on the sandbox tool, in [webhooks](./webhooks-v2) payloads, and in `data.status` from **[Check Transaction Status](./transactions/check-status)**. Exact values depend on channel and flow.
+### Request headers
+
+| Header | Value | Required |
+|---|---|---|
+| `Accept` | `application/json` | Yes |
+| `Content-Type` | `application/json` | Yes |
+| `X-API-KEY` | `{apiKey}` | Yes |
+| `Authorization` | `Bearer {token}` | Yes |
+
+### Request body
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `trxId` | string | Yes | Transaction ID to update (for example the `trxId` returned when creating QRIS, VA, or other flows) |
+| `status` | string | Yes | Target status value (see [Available status values](#available-status-values)) |
+
+### Code example
+
+<Tabs groupId="set-status-examples" defaultValue="curl" values={[
+  { label: 'cURL', value: 'curl' },
+]}>
+
+<TabItem value="curl">
+
+```bash
+curl --location 'https://sandbox.ilonapay.com/api/v2/transaction-set-status' \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --header 'X-API-KEY: {apiKey}' \
+  --header 'Authorization: Bearer {token}' \
+  --data '{
+  "trxId": "TRXQRIS3B2XHYDVK7OMRSSSSI",
+  "status": "completed"
+}'
+```
+
+</TabItem>
+
+</Tabs>
+
+:::tip Testing flow
+Create a transaction in sandbox (for example [Create QRIS](/docs/qris-create)), copy `data.trxId` from the response, then call this endpoint with the desired `status` to exercise webhooks or [Check Transaction Status](/docs/transactions/check-status) polling.
+:::
+
+### Response
+
+#### Success (`200 OK`)
+
+```json
+{
+  "code": 2000203,
+  "message": "Transaction status updated",
+  "data": {
+    "status": "completed",
+    "trxId": "TRXQRIS3B2XHYDVK7OMRSSSSI",
+    "updatedAt": "2026-05-09T12:26:16Z"
+  }
+}
+```
+
+| Field | Type | Description |
+|---|---|---|
+| `code` | number | Application response code |
+| `message` | string | Result message |
+| `data.status` | string | Status after the update (matches the `status` you sent when accepted) |
+| `data.trxId` | string | Transaction identifier |
+| `data.updatedAt` | string | Time the status was updated (ISO 8601) |
+
+### Available status values
+
+Statuses below can appear from this sandbox API, in [webhooks](/docs/webhooks-v2) payloads, and in `data.status` from **[Check Transaction Status](/docs/transactions/check-status)**. Exact values depend on channel and flow.
 
 | Status code | Category | Description |
 |-------------|----------|-------------|
@@ -34,14 +113,14 @@ Statuses below can appear on the sandbox tool, in [webhooks](./webhooks-v2) payl
 | `refunded` | `withdraw` | Funds returned after completion or reversal |
 | `expired` | `receive_payment`, `withdraw` | Pay-in session or validity window elapsed |
 
-Withdrawal-specific processing states (`awaiting_*`) are summarized in **[Create Withdrawal](./withdraw#available-withdraw-status)** alongside a payout-focused lifecycle diagram.
+Withdrawal-specific processing states (`awaiting_*`) are summarized in **[Create Withdrawal](/docs/withdraw#available-withdraw-status)** alongside a payout-focused lifecycle diagram.
 
 ---
 
-## Check transaction status (API)
+## Check transaction status (read)
 
-In **API v2**, programmatic status lookup uses **`POST /api/v2/transactions`** with **`Authorization: Bearer {token}`** and **`X-API-KEY`**. You send JSON with `value` (for example your `trxId`) and **`Type`** set to **`TRX_ID`**. The response uses `code`, `message`, and `data` (including `data.status` and channel fields such as `paymentChannel`, `expiredAt`, or payout details).
+In **API v2**, programmatic status **lookup** (not mutation) uses **`POST /api/v2/transactions`** with **`Authorization: Bearer {token}`** and **`X-API-KEY`**. Send JSON with `value` (for example your `trxId`) and **`Type`** set to **`TRX_ID`**.
 
-Use the dedicated guide for full request and response schemas, error codes, and polling guidance: **[Check Transaction Status](./transactions/check-status)**.
+Use the full schema and polling guidance: **[Check Transaction Status](/docs/transactions/check-status)**.
 
-For push-based updates instead of polling, configure **[Webhooks](./webhooks-v2)**.
+For push-based updates instead of polling, configure **[Webhooks](/docs/webhooks-v2)**.

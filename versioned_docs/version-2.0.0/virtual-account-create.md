@@ -51,7 +51,7 @@ Typical flow:
 | `trxReference`             | string | ✅       | Unique merchant-side reference for idempotency and tracking |
 | `paymentType` | string | ✅ | VA payment channel code (for example `BTNVA`) |
 | `amount` | number | ✅ | Payment amount in IDR |
-| `feeType` | Required, allowed values: `CUSTOMER`, `SELLER` |
+| `feeType` | Required| | allowed values: `CUSTOMER`, `SELLER` |
 
 :::note Fee Responsibility
 If `feeType` is `SELLER`, the service cost is borne by the merchant/seller.  
