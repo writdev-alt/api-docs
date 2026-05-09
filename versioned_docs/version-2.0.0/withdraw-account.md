@@ -10,9 +10,30 @@ import TabItem from '@theme/TabItem';
 
 Create a new withdrawal account for the authenticated user. The bank account will be verified with the payment gateway in production environments.
 
-**POST** `/api/v2/withdraw-accounts`
+**Endpoint:**  
+`POST /api/v2/withdraw-accounts`
 
-## Request Headers
+## Overview
+
+Use this endpoint to register a destination account that can be used in payout flows.
+
+Typical flow:
+1. Select account `type` and `category`.
+2. Submit destination account details and `bankCode`.
+3. Store the returned account `id` for future withdrawal requests.
+
+## Endpoint Details
+
+| Item | Value |
+|---|---|
+| HTTP Method | `POST` |
+| Endpoint | `/api/v2/withdraw-accounts` |
+| Auth Required | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
+| Content Type | `application/json` |
+
+## Request
+
+### Request Headers
 
 | Header           | Value               | Required | Description             |
 |------------------|---------------------|----------|-------------------------|
@@ -21,7 +42,7 @@ Create a new withdrawal account for the authenticated user. The bank account wil
 | `X-API-KEY` | `{apiKey}` | ✅ | API key credential. |
 | `Authorization` | `Bearer {token}` | ✅ | Bearer access token. |
 
-## Request Body
+### Request Body
 
 | Parameter             | Type    | Required | Description                                                         |
 |-----------------------|---------|----------|---------------------------------------------------------------------|
@@ -31,7 +52,17 @@ Create a new withdrawal account for the authenticated user. The bank account wil
 | `accountHolderName` | string  | ✅       | Account holder's full name (max 255 characters).                    |
 | `bankCode`           | string  | ✅       | Bank or wallet code from the lists endpoint (max 255 characters).   |
 
-## Code Examples
+### Validation Rules (Recommended)
+
+| Field | Rule |
+|---|---|
+| `type` | Required, allowed values: `BANK_TRANSFER`, `VIRTUAL_ACCOUNT`, `E_WALLET` |
+| `category` | Required, allowed values: `Reconcile`, `Customer` |
+| `accountNumber` | Required, non-empty string |
+| `accountHolderName` | Required, non-empty string |
+| `bankCode` | Required, valid code from [Banks List](./banks/list-v2) |
+
+### Code Examples
 
 <Tabs groupId="withdraw-create-code" defaultValue="curl" values={[
     { label: 'cURL', value: 'curl' },
@@ -45,12 +76,15 @@ Create a new withdrawal account for the authenticated user. The bank account wil
 ```bash
 curl -X POST "/api/v2/withdraw-accounts" \
   -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer {token}" \
   -H "X-API-KEY: apiKey" \
   -d '{
-    "methodId": 1,
+    "type": "BANK_TRANSFER",
+    "category": "Customer",
     "accountNumber": "1234567890",
     "accountHolderName": "John Doe",
-    "bankCode": "1",
+    "bankCode": "1"
   }'
 ```
 
@@ -64,9 +98,10 @@ curl -X POST "/api/v2/withdraw-accounts" \
 use Illuminate\Support\Facades\Http;
 
 $baseUrl = '/api/v2';
+$token = 'yourBearerToken';
 $apiKey = 'apiKey';
 $accountData = [
-    'methodId' => 1,
+    'type' => 'BANK_TRANSFER',
     'category' => 'Customer',
     'accountNumber' => '1234567890',
     'accountHolderName' => 'John Doe',
@@ -79,6 +114,8 @@ $accountData = [
 
 $response = Http::timeout(60)->withHeaders([
     'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => "Bearer {$token}",
     'X-API-KEY' => $apiKey,
 ])->post("{$baseUrl}/withdraw-accounts", $accountData);
 
@@ -93,9 +130,10 @@ $result = $response->json();
 const axios = require('axios');
 
 const baseUrl = '/api/v2';
+const token = 'yourBearerToken';
 const apiKey = 'apiKey';
 const accountData = {
-  methodId: 1,
+  type: 'BANK_TRANSFER',
   category: 'Customer',
   accountNumber: '1234567890',
   accountHolderName: 'John Doe',
@@ -110,6 +148,8 @@ axios
   .post(`${baseUrl}/withdraw-accounts`, accountData, {
     headers: {
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
       'X-API-KEY': apiKey,
     },
   })
@@ -129,9 +169,10 @@ axios
 import requests
 
 baseUrl = '/api/v2'
+token = 'yourBearerToken'
 apiKey = 'apiKey'
 accountData = {
-    'methodId': 1,
+    'type': 'BANK_TRANSFER',
     'category': 'Customer',
     'accountNumber': '1234567890',
     'accountHolderName': 'John Doe',
@@ -144,6 +185,8 @@ accountData = {
 
 headers = {
     'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': f'Bearer {token}',
     'X-API-KEY': apiKey,
 }
 
@@ -160,7 +203,9 @@ else:
 
 </Tabs>
 
-## Responses
+## Response
+
+### Responses
 
 <Tabs groupId="withdraw-create-response" defaultValue="success" values={[
     { label: 'Success', value: 'success' },
@@ -220,8 +265,27 @@ else:
 
 </Tabs>
 
-> **⚠️ Important**  
-> - In production, the bank account is verified with the payment gateway before creation.  
-> - Use a valid `bankCode` from the [Banks List](./banks/list-v2) endpoint.  
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `success` | boolean | Operation result flag |
+| `code` | string | Service response code |
+| `message` | string | Human-readable response message |
+| `data.id` | number | Withdrawal account identifier |
+| `data.withdrawMethodId` | number | Internal withdrawal method ID |
+| `data.category` | string | Account category (`Customer` or `Reconcile`) |
+| `data.accountNumber` | string | Destination account number |
+| `data.accountHolderName` | string | Destination account holder name |
+| `data.bankCode` | string | Bank or wallet code |
+| `data.bankName` | string | Resolved bank display name |
+| `data.createdAt` | string | Creation timestamp (ISO 8601) |
+| `data.updatedAt` | string | Last update timestamp (ISO 8601) |
+
+## Security and Reliability Notes
+
+- In production, bank account ownership/validity is verified by the payment gateway before creation.
+- Always resolve `bankCode` from [Banks List](./banks/list-v2) before submission.
+- Keep API keys and bearer tokens in secure server-side storage.
 
 

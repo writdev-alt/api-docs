@@ -41,7 +41,7 @@ This helps prevent invalid routing codes and keeps client-side bank selectors sy
 
 This endpoint does not require request body parameters.
 
-## Example cURL Request
+### Code Example
 
 ```bash
 curl --location '/api/v2/banks' \
@@ -53,7 +53,7 @@ curl --location '/api/v2/banks' \
 
 ## Response
 
-### Success Response (`200 OK`)
+### Success (`200 OK`)
 
 ```json
 {
@@ -105,7 +105,7 @@ curl --location '/api/v2/banks' \
 | `data[].bankName` | string | Display name of the bank |
 | `data[].type` | string | Category, for example `BANK_TRANSFER` |
 
-## Notes
+## Security and Reliability Notes
 
 - Cache this list with periodic refresh to reduce repeated calls.
 - Always validate selected `bankCode` against the latest API response.

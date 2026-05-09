@@ -12,7 +12,7 @@ Generate a dynamic QRIS payment transaction for Indonesia domestic payments.
 Use this endpoint when your system needs to create a payable QR code for checkout or bill settlement workflows.
 
 **Endpoint:**  
-`POST api/v2/qris/create`
+`POST /api/v2/qris/create`
 
 ## Overview
 
@@ -29,7 +29,7 @@ Typical flow:
 | Item | Value |
 |---|---|
 | HTTP Method | `POST` |
-| Endpoint | `api/v2/qris/create` |
+| Endpoint | `/api/v2/qris/create` |
 | Auth Required | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
 | Content Type | `application/json` |
 | Currency | `IDR` |

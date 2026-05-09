@@ -42,7 +42,7 @@ Use this data to power account dashboards, balance checks, and transaction pre-v
 
 This endpoint does not require a request body.
 
-## Example cURL Request
+### Code Example
 
 ```bash
 curl --location '/api/v2/wallets' \
@@ -53,7 +53,7 @@ curl --location '/api/v2/wallets' \
 
 ## Response
 
-### Success Response (`200 OK`)
+### Success (`200 OK`)
 
 ```json
 {
@@ -117,7 +117,7 @@ curl --location '/api/v2/wallets' \
 | `data[].createdAt` | string | Wallet creation timestamp (ISO-8601 UTC) |
 | `data[].updatedAt` | string | Last wallet update timestamp (ISO-8601 UTC) |
 
-## Notes
+## Security and Reliability Notes
 
 - Use `balance` and `holdBalance` together when calculating spendable funds.
 - Do not assume a single wallet; merchants can have multiple currencies.

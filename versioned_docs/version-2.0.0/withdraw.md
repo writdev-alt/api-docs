@@ -122,7 +122,7 @@ $withdrawalData = [
     'accountHolderName' => 'RAIDY WIJAYA',
     'accountNumber' => '1040000008446',
     'amount' => 4000000,
-    'paymentMethod' => '1',
+    'paymentMethod' => 'BANK_TRANSFER',
     'description' => 'domestic transfer bni 0315747263 009 v2',
     'walletReference' => 'WALLET-REF-001', // Optional
 ];
@@ -152,7 +152,7 @@ const withdrawalData = {
     accountHolderName: 'RAIDY WIJAYA',
     accountNumber: '1040000008446',
     amount: 4000000,
-    paymentMethod: '1',
+    paymentMethod: 'BANK_TRANSFER',
     description: 'domestic transfer bni 0315747263 009 v2',
     walletReference: 'WALLET-REF-001', // Optional
 };
@@ -188,7 +188,7 @@ withdrawalData = {
     'accountHolderName': 'RAIDY WIJAYA',
     'accountNumber': '1040000008446',
     'amount': 4000000,
-    'paymentMethod': '1',
+    'paymentMethod': 'BANK_TRANSFER',
     'description': 'domestic transfer bni 0315747263 009 v2',
     'walletReference': 'WALLET-REF-001',  # Optional
 }

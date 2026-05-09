@@ -48,8 +48,12 @@ Typical flow:
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
+| `trxReference`             | string | ✅       | Unique merchant-side reference for idempotency and tracking |
 | `paymentType` | string | ✅ | VA payment channel code (for example `BTNVA`) |
 | `amount` | number | ✅ | Payment amount in IDR |
+
+Supported `paymentType` values:
+`SinarmasVA`, `MaybankVA`, `DanamonVA`, `BNCVA`, `BCAVA`, `INAVA`, `BNIVA`, `PermataVA`, `MuamalatVA`, `BSIVA`, `BRIVA`, `MandiriVA`, `CIMBVA`, `NobuVA`, `KaltimtaraVA`, `BTNVA`
 
 ### Validation Rules (Recommended)
 
@@ -73,9 +77,11 @@ curl --location '/virtual-account/create' \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer {token}' \
   --data '{
-    "paymentType":"BTNVA",
-    "amount":10000
-  }'
+  "trxReference": "79ca7508-d32a-4d06-ad91-d3123c65fddd",
+  "paymentType": "BTNVA",
+  "amount": 10000,
+  "feeType": "SELLER"
+}'
 ```
 
 </TabItem>
@@ -104,6 +110,8 @@ curl --location '/virtual-account/create' \
   "data": {
     "trxId": "TRX-VA-20260429-H8P2XK9Q1N",
     "trxReference": "3f5b7f60-8c95-428f-9680-65d3bc5f9f31",
+    "externalId": "VA1778307371448d0450",
+    "vaNumber": "1778307371448d0450",
     "amount": 10000,
     "netAmount": 9800,
     "fee": 200,
