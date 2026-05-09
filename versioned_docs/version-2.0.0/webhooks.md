@@ -1,7 +1,8 @@
 ---
 id: webhooks
-slug: webhooks-v2
+slug: /webhooks-v2
 title: Webhooks
+description: Configure webhook delivery, signatures, retries, and payload handling for API v2 transaction updates.
 sidebar_position: 5
 ---
 
@@ -16,8 +17,9 @@ Configure your webhook endpoint to receive instant payment notifications. The we
 
 ![Webhook Configuration Interface](/img/webhook.png)
 
-> **Reliable Delivery**  
-> Ilopay implements retry logic for failed webhook deliveries. We'll retry up to 5 times with exponential backoff.
+:::note Reliable Delivery
+Ilonapay retries failed webhook deliveries up to 5 times using exponential backoff.
+:::
 
 ---
 

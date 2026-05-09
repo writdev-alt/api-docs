@@ -51,6 +51,12 @@ Typical flow:
 | `trxReference`             | string | ✅       | Unique merchant-side reference for idempotency and tracking |
 | `paymentType` | string | ✅ | VA payment channel code (for example `BTNVA`) |
 | `amount` | number | ✅ | Payment amount in IDR |
+| `feeType` | Required, allowed values: `CUSTOMER`, `SELLER` |
+
+:::note Fee Responsibility
+If `feeType` is `SELLER`, the service cost is borne by the merchant/seller.  
+If `feeType` is `CUSTOMER`, the service cost is borne by the customer.
+:::
 
 Supported `paymentType` values:
 `SinarmasVA`, `MaybankVA`, `DanamonVA`, `BNCVA`, `BCAVA`, `INAVA`, `BNIVA`, `PermataVA`, `MuamalatVA`, `BSIVA`, `BRIVA`, `MandiriVA`, `CIMBVA`, `NobuVA`, `KaltimtaraVA`, `BTNVA`

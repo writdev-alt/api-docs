@@ -1,16 +1,21 @@
 ---
 id: intro
+slug: /
 title: Introduction
+description: API v2 integration guide for authentication, pay-in, payout, and transaction monitoring.
 sidebar_position: 1
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # API Docs v2
 
 Welcome to the IlonaPay API v2 documentation. This guide provides everything needed to integrate secure, reliable payment workflows in web-based systems using RESTful APIs and JSON.
 
-> **Environments**  
-> Use `https://sandbox.ilonapay.com` for development/testing and `https://production.ilonapay.com` for live production traffic.  
-> Keep credentials and tokens separated per environment.
+:::tip Environment Separation
+Use `https://sandbox.ilonapay.com` for development/testing and `https://production.ilonapay.com` for live traffic. Keep credentials and tokens separated per environment.
+:::
 
 ## Overview
 
@@ -29,6 +34,37 @@ Use the base URL according to your environment:
 - **Production:** `https://production.ilonapay.com`
 
 All endpoint paths in this documentation are relative to the selected base URL.
+
+## Quick Start by Use Case
+
+<Tabs defaultValue="payin" values={[
+  {label: 'Pay-in', value: 'payin'},
+  {label: 'Payout', value: 'payout'},
+  {label: 'Monitoring', value: 'monitoring'},
+]}>
+<TabItem value="payin">
+
+1. Authenticate with [Login](./login-v2).
+2. Create a payment using [Create QRIS](./qris-create) or [Create Virtual Account](./virtual-account-create).
+3. Track status via [Check Transaction Status](./transactions/check-status) or [Webhooks](./webhooks-v2).
+
+</TabItem>
+<TabItem value="payout">
+
+1. Authenticate with [Login](./login-v2).
+2. Fetch destination metadata from [Banks List](./banks/list-v2).
+3. (Optional) Register destination using [Create Withdrawal Account](./withdraw-account).
+4. Submit payout with [Create Withdrawal](./withdraw).
+
+</TabItem>
+<TabItem value="monitoring">
+
+1. Persist `trxId` and `trxReference` for each transaction.
+2. Poll [Check Transaction Status](./transactions/check-status) on a safe interval.
+3. Configure [Webhooks](./webhooks-v2) for near real-time push updates.
+
+</TabItem>
+</Tabs>
 
 ## Authentication Model
 
@@ -76,6 +112,10 @@ Recommended integration order:
 2. Implement authentication (`Login`)
 3. Integrate master data endpoints (`Banks List`, `Wallets List`)
 4. Add business transaction flows and webhook handling as needed
+
+:::note Documentation Scope
+This documentation set is for API v2. For predictable behavior, always validate integration logic against the v2 response code and status conventions.
+:::
 
 ## Security Best Practices
 

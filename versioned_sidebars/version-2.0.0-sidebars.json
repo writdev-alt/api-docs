@@ -22,21 +22,25 @@
     {
       "type": "category",
       "label": "Payout",
-      "items": ["withdraw"]
+      "collapsed": false,
+      "items": ["withdraw-account-v2", "withdraw"]
     },
     {
       "type": "category",
       "label": "Pay-in",
+      "collapsed": false,
       "items": ["qris-create-v2", "virtual-account-create"]
     },
     {
       "type": "category",
       "label": "Transaction status",
-      "items": ["check-transaction-v2", "webhooks"]
+      "collapsed": false,
+      "items": ["check-transaction-v2", "webhooks", "set-status-v2"]
     },
     {
       "type": "category",
       "label": "Reference data",
+      "collapsed": false,
       "items": ["banks-list-v2", "wallets-list-v2"]
     },
     {

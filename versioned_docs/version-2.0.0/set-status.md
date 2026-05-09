@@ -1,13 +1,16 @@
 ---
 id: set-status-v2
+slug: /set-status-v2
 title: Payment Status Management
+description: Sandbox status simulation page for testing payment and withdrawal status transitions.
 sidebar_position: 10
 ---
 
 ## Payment Status Management
 
-> ⚠️ **Sandbox Only**  
-> This feature is only available in sandbox/testing environments for development and testing purposes.
+:::warning Sandbox Only
+This feature is available only in sandbox/testing environments.
+:::
 
 **Access the payment status management interface** via this [endpoint](https://sandbox.ilonapay.com/payment/set-status).
 

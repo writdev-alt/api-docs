@@ -53,6 +53,11 @@ Typical flow:
 | `trxReference` | string | ✅ | Unique merchant reference for idempotency and reconciliation. |
 | `feeType` | string | ✅ | Fee assignment policy: `CUSTOMER` or `SELLER`. |
 
+:::note Fee Responsibility
+If `feeType` is `SELLER`, the service cost is borne by the merchant/seller.  
+If `feeType` is `CUSTOMER`, the service cost is borne by the customer.
+:::
+
 ### Validation Rules (Recommended)
 
 | Field | Rule |

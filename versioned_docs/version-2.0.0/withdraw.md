@@ -1,6 +1,8 @@
 ---
 id: withdraw
+slug: /withdraw
 title: Create Withdrawal
+description: Create payout transactions from merchant balance to bank, virtual account, or e-wallet destinations.
 sidebar_position: 2
 ---
 
