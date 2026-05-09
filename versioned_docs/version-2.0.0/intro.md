@@ -44,24 +44,24 @@ All endpoint paths in this documentation are relative to the selected base URL.
 ]}>
 <TabItem value="payin">
 
-1. Authenticate with [Login](./login-v2).
-2. Create a payment using [Create QRIS](./qris-create) or [Create Virtual Account](./virtual-account-create).
-3. Track status via [Check Transaction Status](./transactions/check-status) or [Webhooks](./webhooks-v2).
+1. Authenticate with [Login](/docs/auth/login-v2).
+2. Create a payment using [Create QRIS](/docs/qris-create) or [Create Virtual Account](/docs/virtual-account-create).
+3. Track status via [Check Transaction Status](/docs/transactions/check-status) or [Webhooks](/docs/webhooks-v2).
 
 </TabItem>
 <TabItem value="payout">
 
-1. Authenticate with [Login](./login-v2).
-2. Fetch destination metadata from [Banks List](./banks/list-v2).
-3. (Optional) Register destination using [Create Withdrawal Account](./withdraw-account).
-4. Submit payout with [Create Withdrawal](./withdraw).
+1. Authenticate with [Login](/docs/auth/login-v2).
+2. Fetch destination metadata from [Banks List](/docs/banks/list-v2).
+3. (Optional) Register destination using [Create Withdrawal Account](/docs/withdraw-account).
+4. Submit payout with [Create Withdrawal](/docs/withdraw).
 
 </TabItem>
 <TabItem value="monitoring">
 
 1. Persist `trxId` and `trxReference` for each transaction.
-2. Poll [Check Transaction Status](./transactions/check-status) on a safe interval.
-3. Configure [Webhooks](./webhooks-v2) for near real-time push updates.
+2. Poll [Check Transaction Status](/docs/transactions/check-status) on a safe interval.
+3. Configure [Webhooks](/docs/webhooks-v2) for near real-time push updates.
 
 </TabItem>
 </Tabs>

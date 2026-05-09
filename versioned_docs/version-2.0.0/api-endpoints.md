@@ -47,33 +47,33 @@ All endpoints in this documentation follow this structure:
 ]}>
 <TabItem value="auth">
 
-- [Login](./login-v2)
-- [Refresh Token](./refresh-v2)
+- [Login](/docs/auth/login-v2)
+- [Refresh Token](/docs/auth/refresh-v2)
 
 </TabItem>
 <TabItem value="payin">
 
-- [Create QRIS](./qris-create)
-- [Create Virtual Account](./virtual-account-create)
+- [Create QRIS](/docs/qris-create)
+- [Create Virtual Account](/docs/virtual-account-create)
 
 </TabItem>
 <TabItem value="payout">
 
-- [Create Withdrawal](./withdraw)
-- [Create Withdrawal Account](./withdraw-account)
+- [Create Withdrawal](/docs/withdraw)
+- [Create Withdrawal Account](/docs/withdraw-account)
 
 </TabItem>
 <TabItem value="monitoring">
 
-- [Check Transaction Status](./transactions/check-status)
-- [Webhooks](./webhooks-v2)
+- [Check Transaction Status](/docs/transactions/check-status)
+- [Webhooks](/docs/webhooks-v2)
 
 </TabItem>
 <TabItem value="reference">
 
-- [Banks List](./banks/list-v2)
-- [Wallets List](./wallets/list-v2)
-- [Response Code](./response-code-v2)
+- [Banks List](/docs/banks/list-v2)
+- [Wallets List](/docs/wallets/list-v2)
+- [Response Code](/docs/response-code-v2)
 
 </TabItem>
 </Tabs>
