@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Create a Virtual Account (VA) payment transaction for Indonesia domestic collections.
 
 **Endpoint:**  
-`POST /virtual-account/create`
+`POST /api/v2/virtual-account/create`
 
 ## Overview
 
@@ -28,7 +28,7 @@ Typical flow:
 | Item | Value |
 |---|---|
 | HTTP Method | `POST` |
-| Endpoint | `/virtual-account/create` |
+| Endpoint | `api/v2/virtual-account/create` |
 | Auth Required | Yes (`Authorization: Bearer {token}`, `X-API-KEY`) |
 | Content Type | `application/json` |
 | Currency | `IDR` |
@@ -77,7 +77,7 @@ Supported `paymentType` values:
 <TabItem value="curl">
 
 ```bash
-curl --location '/virtual-account/create' \
+curl --location '/api/v2/virtual-account/create' \
   --header 'X-API-KEY: {apiKey}' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
