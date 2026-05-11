@@ -248,7 +248,7 @@ curl --location 'https://production.ilonapay.com/api/v2/transactions' \
 ## Status Lifecycle (Guideline)
 
 Common status transitions:
-- **Payin:** `pending` -> `paid` or `expired`/`failed`
+- **Payin:** `pending` -> `completed` (if paid) or `expired`/`failed` (if not paid)
 - **Payout:** `pending` -> `completed` or `failed` -> `refund` (if failed, amount should be refunded to source balance)
 
 ## Operational Notes
