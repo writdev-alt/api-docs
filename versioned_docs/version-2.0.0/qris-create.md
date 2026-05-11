@@ -216,7 +216,6 @@ After a successful create, `data.status` is usually **`pending`**: the QR is val
 | Status | Meaning |
 |--------|--------|
 | `pending` | Awaiting customer payment; QR is still valid before `expiredAt`. |
-| `paid` | Payment confirmed (payin success; terminology may vary by integration). |
 | `completed` | Sometimes used as the success terminal alongside or instead of `paid` (for example in notifications). |
 | `expired` | Customer did not pay before `expiredAt`. |
 | `failed` | Payment attempt did not complete successfully. |

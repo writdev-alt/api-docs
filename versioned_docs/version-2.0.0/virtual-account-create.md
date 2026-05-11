@@ -195,7 +195,6 @@ After a successful create, `data.status` is usually **`pending`**: the payer mus
 | Status | Meaning |
 |--------|--------|
 | `pending` | Awaiting bank transfer to the VA; valid until `expiredAt`. |
-| `paid` | Payment confirmed (payin success; terminology may vary by integration). |
 | `completed` | Sometimes used as the success terminal alongside or instead of `paid` (for example in notifications). |
 | `expired` | No qualifying payment before `expiredAt`. |
 | `failed` | Collection did not complete successfully. |

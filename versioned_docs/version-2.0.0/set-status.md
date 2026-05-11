@@ -102,7 +102,6 @@ Statuses below can appear from this sandbox API, in [webhooks](/docs/webhooks-v2
 | Status code | Category | Description |
 |-------------|----------|-------------|
 | `pending` | `receive_payment`, `withdraw` | Awaiting payer action or initial processing |
-| `paid` | `receive_payment` | Pay-in successfully settled (often used in polling responses) |
 | `awaiting_fi_process` | `withdraw` | Awaiting processing by the financial institution |
 | `awaiting_pg_process` | `withdraw` | Queued at the payment gateway |
 | `awaiting_user_action` | `withdraw` | Merchant or customer action required |
