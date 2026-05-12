@@ -64,9 +64,11 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/writdev-alt/api-docs',
+          lastVersion: '2.0.0',
           versions: {
             current: {
-              label: '1.0.0',
+              label: 'Next',
+              path: 'next',
             },
           },
         },

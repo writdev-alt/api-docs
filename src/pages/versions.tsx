@@ -18,7 +18,7 @@ export default function Versions(): React.JSX.Element {
               <tr>
                 <th>{latestVersion}</th>
                 <td>
-                  <a href={`/docs/intro`}>Documentation</a>
+                  <a href={`/docs`}>Documentation</a>
                 </td>
                 <td>
                   <a href={`https://github.com/writdev-alt/api-docs/releases/tag/v${latestVersion}`}>

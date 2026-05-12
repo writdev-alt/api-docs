@@ -7,8 +7,8 @@ export default function Home(): React.JSX.Element {
   const {currentLocale, defaultLocale} = i18n;
   
   const redirectPath = currentLocale === defaultLocale 
-    ? '/docs/intro' 
-    : `/${currentLocale}/docs/intro`;
+    ? '/docs' 
+    : `/${currentLocale}/docs`;
     
   return <Redirect to={redirectPath} />;
 }
