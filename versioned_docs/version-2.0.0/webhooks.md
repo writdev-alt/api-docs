@@ -15,7 +15,7 @@ Ilonapay sends real-time notifications to your specified IPN URL when payment st
 
 Configure your webhook endpoint to receive instant payment notifications. The webhook configuration interface allows you to set up your endpoint URL, enable or disable webhooks, verify SSL certificates, and test your webhook integration.
 
-![Webhook Configuration Interface](/img/webhook.png)
+![Webhook Configuration Interface](/img/webhook-v2.png)
 
 :::note Reliable Delivery
 Ilonapay retries failed webhook deliveries up to 5 times using exponential backoff.
