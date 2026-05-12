@@ -52,6 +52,8 @@ Typical flow:
 | `amount` | number | ✅ | Payment amount in IDR (integer, greater than 0). |
 | `trxReference` | string | ✅ | Unique merchant reference for idempotency and reconciliation. |
 | `feeType` | string | ✅ | Fee assignment policy: `CUSTOMER` or `SELLER`. |
+| `expire` | number | ❌ | Optional. How long (in seconds) the QR code will remain valid before expiring. If not provided, a default expiry duration is applied by the system. |
+
 
 :::note Fee Responsibility
 If `feeType` is `SELLER`, the service cost is borne by the merchant/seller.  
