@@ -35,16 +35,17 @@ Ilonapay retries failed webhook deliveries up to 5 times using exponential backo
 ## Payload Webhook
 
 <Tabs
-  defaultValue="receive-payment"
+  defaultValue="receive-payment-qris"
   values={[
-    {label: 'Status Pembayaran', value: 'receive-payment'},
+    {label: 'Status Pembayaran QRIS', value: 'receive-payment-qris'},
+    {label: 'Status Pembayaran Virtual Account', value: 'receive-payment-virtual-account'},
     {label: 'Status Penarikan Dana', value: 'withdraw'},
   ]}
 >
 
-<TabItem value="receive-payment">
+<TabItem value="receive-payment-qris">
 
-Example payload for an updated payment status:
+Example payload for an updated QRIS payment status:
 
 ```json
 {
@@ -66,6 +67,38 @@ Example payload for an updated payment status:
   "message": "Receive Payment via QRIS",
   "status": "completed",
   "timestamp": 1762927877
+}
+```
+</TabItem>
+
+
+
+<TabItem value="receive-payment-virtual-account">
+
+
+
+Example payload for an updated Virtual Account payment status:
+
+```json
+{
+  "event": "receiveVirtualAccountPayment",
+  "data": {
+    "trxId": "TRXVA39CVH0SOFGDK808XIIQ8",
+    "trxReference": "57c4db72-96d0-4442-a2cb-25be291a409e",
+    "vaCode": "9999992006674170",
+    "amount": "10000.00",
+    "currencyCode": "IDR",
+    "description": "Virtual Account",
+    "customerName": "",
+    "customerEmail": "",
+    "customerPhone": "",
+    "merchantId": 3,
+    "merchantName": "Demo Brand Baru",
+    "paymentMethod": "VIRTUAL_ACCOUNT"
+  },
+  "message": "Receive Virtual Account payment via Demo Brand Baru",
+  "status": "expired",
+  "timestamp": 1778697331
 }
 ```
 
