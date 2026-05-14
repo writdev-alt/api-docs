@@ -51,7 +51,8 @@ Typical flow:
 |---|---|---|---|
 | `amount` | number | ✅ | Payment amount in IDR (integer, greater than 0). |
 | `trxReference` | string | ✅ | Unique merchant reference for idempotency and reconciliation. |
-| `feeType` | string | ✅ | Fee assignment policy: `CUSTOMER` or `SELLER`. |
+| `walletReference` | string | ❌ | Optional. Wallet reference identifier (if applicable) for reconciliation. |
+| `feeType` | string | ❌ | Fee assignment policy: `CUSTOMER` or `SELLER`. Defaults to `SELLER` if not provided. |
 | `expire` | number | ❌ | Optional. How long (in seconds) the QR code will remain valid before expiring. If not provided, a default expiry duration 1 hour is applied by the system. |
 
 
@@ -85,6 +86,7 @@ curl --location '/api/v2/qris/create' \
   --data '{
     "amount": 1000,
     "trxReference": "d73c0f1a-993f-4968-815c-0daf9510ab23",
+    "walletReference": "WALLET-12345",
     "feeType": "CUSTOMER"
   }'
 ```
